@@ -1,0 +1,101 @@
+*{padding:0; margin: 0;}
+
+/*search bar*/
+
+
+#search{
+	border: solid black 1px;
+	margin-top: 0;
+	margin-left: 25px;
+	margin-right:25px;
+	background: #f2f2f2;
+	text-align: center;
+}
+
+label{
+	list-style-type: none;
+	display: inline-block;
+	margin: 10px 10px;
+	padding: 10px;	
+}
+
+#searchButton{
+	margin: 20px;
+	padding: 2px;
+	font-size: 1em;
+}
+
+
+/*Add new record*/
+
+
+.openButton {
+  background-color: #555;
+  color: white;
+  font-weight: bold;
+  border:none;
+  margin: 10px 10px 10px 25px;
+  padding: 10px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.report{
+  background-color: #555;
+  color: white;
+  font-weight: bold;
+  border:none;
+  margin: 10px 5px;
+  padding: 10px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.formPopup {
+  display: none;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(255, 255, 255, 0.75);
+  border: 3px solid #f1f1f1;
+  /*z-index: 9;*/
+}
+
+.formContainer {
+  background-color: white;
+  border: solid black 1px;
+  width: 25%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Set a style for the save/cancel buttons */
+.formContainer .btn {
+  background-color: #555;
+  color: white;
+  font-weight: bold;
+  padding: 16px 20px;
+  width: 25%;
+  border: none;
+  cursor: pointer;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Background for cancel button */
+.formContainer .cancel {
+  background-color: #ac3939;
+}
+
+/* Hover effects*/
+.formContainer .btn:hover, .openButton:hover, .report:hover {
+  opacity: 1;
+}
+
+.formPopup h1{
+	text-align: center;
+	color: white;
+	background-color: #37439b;
+}
+
+
