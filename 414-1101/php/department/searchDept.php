@@ -20,11 +20,11 @@ $Office_Phone= $_POST['dPhone'];
 
 if (isset($_POST['dNo'], $_POST['dName'], $_POST['dAddr'], $_POST['dPhone'])) //check for info
 	{
-		$result1= mysqli_query($conn, "SELECT * FROM department where Dept_Name=$Dept_Name");
-		/*where Dept_ID = $Dept_ID;
+		$result1= mysqli_query($conn, "SELECT * FROM department where Dept_ID = $Dept_ID");
+		/*
 		or Dept_Name=$Dept_Name 
 		or Office_Addr=$Office_Addr 
-		or Office_Phone=$Office_Phone");*/ //select info
+		or Office_Phone=$Office_Phone");*/ 
 			
 		echo '<table>
 		<tr>
