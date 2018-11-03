@@ -75,8 +75,8 @@
 		echo "<td>" . $row['Dept_Name'] . "</td>";
 		echo "<td>" . $row['Office_Addr'] . "</td>";
 		echo "<td>" . $row['Office_Phone'] . "</td>";
-		echo "<td class='details'><a href='updateDept'.php>Update Record</a></td>";
-		echo "<td class='details'><a href='deleteDept'.php>Delete Record</a></td>";
+		echo "<td class='details'><a href='updateDept.php'>Update Record</a></td>";
+		echo "<td class='details'><a href='deleteDept.php'>Delete Record</a></td>";
 		echo "</tr>";
 	}
 	echo '</table>'; ?>	
