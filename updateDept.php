@@ -29,10 +29,10 @@ echo "Connected successfully <br>";
 //*****SAMPLE UPDATE STATEMENT*******
 
 //Prints the variables to the screen with the user input from the form - used for testing purposes
-echo $dnum;
-echo $dname;
-echo $addr;
-echo $phone;
+//echo $dnum;
+//echo $dname;
+//echo $addr;
+//echo $phone;
 
 //Following block prints the data from the databse BEFORE the update command is implemented
 $result= mysqli_query($conn, "SELECT Dept_ID, Dept_Name, Office_Addr, Office_Phone FROM department");
@@ -63,10 +63,12 @@ $result= mysqli_query($conn, "SELECT Dept_ID, Dept_Name, Office_Addr, Office_Pho
 //I've been commenting out all but one line for testing purposes.
 
 
-//$sql = "UPDATE department SET dept_name = $dname WHERE Dept_ID = 1";
-$sql = "UPDATE department SET Office_addr = $addr WHERE Dept_ID = 1";
-//$sql = "UPDATE department SET Office_Phone = $phone WHERE Dept_ID = 1";
-//$sql = "UPDATE department SET Office_Phone = '2345' WHERE Dept_ID = 1";
+//$sql = "UPDATE department SET dept_name = '".$_POST['dep_name']."' WHERE Dept_ID = 1";
+//$sql = "UPDATE department SET Office_addr = '".$_POST['address']."' WHERE Dept_ID = 1";
+//$sql = "UPDATE department SET Office_Phone = '".$_POST['phone']."' WHERE Dept_ID = 1";
+
+$sql = "UPDATE department SET dept_name = '".$_POST['dep_name']."', Office_addr = '".$_POST['address']."', Office_Phone = '".$_POST['phone']."' WHERE Dept_ID = 1";
+
 
 
 
