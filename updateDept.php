@@ -63,10 +63,12 @@ $result= mysqli_query($conn, "SELECT Dept_ID, Dept_Name, Office_Addr, Office_Pho
 //I've been commenting out all but one line for testing purposes.
 
 
+//Following lines are for testing each field individually
 //$sql = "UPDATE department SET dept_name = '".$_POST['dep_name']."' WHERE Dept_ID = 1";
 //$sql = "UPDATE department SET Office_addr = '".$_POST['address']."' WHERE Dept_ID = 1";
 //$sql = "UPDATE department SET Office_Phone = '".$_POST['phone']."' WHERE Dept_ID = 1";
 
+//Single line to update the database from the form data
 $sql = "UPDATE department SET dept_name = '".$_POST['dep_name']."', Office_addr = '".$_POST['address']."', Office_Phone = '".$_POST['phone']."' WHERE Dept_ID = 1";
 
 
