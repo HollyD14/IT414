@@ -89,7 +89,7 @@ while ($row = mysqli_fetch_array($result)) {
           <label for="name">Department Name:</label> <input type="text" id="dep_name" name="dep_name" value="<?php echo htmlspecialchars($n); ?>" required>
         </div>
         <div>
-          <label for="address">Office Address:</label> <input    type="text" id="address" name="address" value="<?php echo htmlspecialchars($a); ?>">
+		  <label for="address">Office Address:</label> <input    type="text" id="address" name="address" value="<?php echo htmlspecialchars($a); ?>">
         </div>
         <div>
           <label for="phone">Office Phone:</label> <input type="text" id="phone" name="phone" value="<?php echo htmlspecialchars($p); ?>">
