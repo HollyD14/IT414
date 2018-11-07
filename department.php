@@ -78,10 +78,9 @@ I think it's probably a simple fix I just haven't looked into it yet.
 		echo "<td>" . $row['Dept_Name'] . "</td>";
 		echo "<td>" . $row['Office_Addr'] . "</td>";
 		echo "<td>" . $row['Office_Phone'] . "</td>";
-	    echo "<td class='details'><a href='UpdateForm.php?id=$d'>Update</a></td>";
-	  //echo "<td class='details'><a href='deleteDept.php'>Delete Record</a></td>";
+	    	echo "<td class='details'><a href='UpdateForm.php?id=$d'>Update</a></td>";
+	  	echo "<td class='details'><a href='deleteDept.php?id=$d'>Delete</a></td>";
 		//echo "<td class='details'><button class='openButton' onclick='openForm2()'> Update Department</button></td>"; //update button pulls up form when clicked
-		echo "<td class='details'><button class='openButton' onclick= 'openForm3()'>Delete</button></td>"; //delete button pulls up form when clicked
 		echo "</tr>";
 	}
 	echo '</table>'; ?>	
@@ -113,22 +112,5 @@ I think it's probably a simple fix I just haven't looked into it yet.
 		</script> 
 		
 	</div>
-	
-	<!--DELETE POPUP FORM -->
-	<!--Delete button is displayed on each record but currently this is only set to delete department 8 when you run it.
-	The popup form asks if you want to delete before it performs the action -->
-	<div class="formPopup" id="deleteDept"> 
-	<form action="deleteDept.php" method="POST">
-		<p>Are you sure you want to delete?</p>
-		<button type="submit" class="btn save">Save</button>
-		<button type="button" class="btn cancel" onclick="closeForm3()">Cancel</button>
-    </form>
-		<script>
-			function openForm3(){
-			document.getElementById("deleteDept").style.display="block";}
-			function closeForm3() {
-			document.getElementById("deleteDept").style.display="none";}
-		</script> 
-		</div>	
 	</body>
 </html>
