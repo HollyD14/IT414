@@ -60,25 +60,47 @@
     </style>
 </head>
 
-<body>
+
+<?php
+
+$id=$_GET['id'];
+echo $id;
+
+$servername = "localhost";
+	$username = "username";
+	$password = "password";
+	$dbname = "telmon_database";
+
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	
+	$result= mysqli_query($conn, "SELECT Dept_ID, Dept_Name, Office_Addr, Office_Phone FROM department WHERE dept_id=$id");
+	
+while ($row = mysqli_fetch_array($result)) {
+	$d = $row['Dept_ID'];
+	$n = $row['Dept_Name'];
+	$a = $row['Office_Addr'];
+	$p = $row['Office_Phone'];	
+?>
+	<div class="formPopup" id="updateDept"> 
     <form action="updateDept.php" method="post">
         <div>
-          <label for="number">Department Number:</label> <input type="text" id="dep_number" name="dep_number">
+          <label for="number">Department Number:</label> <input type="text" id="dep_number" name="dep_number" value="<?php echo htmlspecialchars($d); ?>" readonly="readonly">
         </div>
         <div>
-          <label for="name">Department Name:</label> <input type="text" id="dep_name" name="dep_name">
+          <label for="name">Department Name:</label> <input type="text" id="dep_name" name="dep_name" value="<?php echo htmlspecialchars($n); ?>" required>
         </div>
         <div>
-          <label for="address">Office Address:</label> <textarea id="address" name="address"></textarea>
+          <label for="address">Office Address:</label> <textarea type="text" id="address" name="address" value="<?php echo htmlspecialchars($a); ?>"></textarea>
+		  <label for="address">Office Address:</label> <input    type="text" id="address" name="address" value="<?php echo htmlspecialchars($a); ?>">
         </div>
         <div>
-          <label for="phone">Office Phone:</label> <input type="text" id="phone" name="phone">
+          <label for="phone">Office Phone:</label> <input type="text" id="phone" name="phone" value="<?php echo htmlspecialchars($p); ?>">
         </div>
         <div class="button">
           <button type="submit">Submit</button>
         </div>
     </form>
-</body>
+
 
 </html>
-
+<?php } ?>
