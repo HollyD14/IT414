@@ -68,9 +68,9 @@
 		<th>Employee Number</th>
 		<th>First Name</th>
 		<th>Last Name</th>
+		<th>Address</th>
 		<th>Birthdate</th>
 		<th>Sex</th>
-		<th>Address</th>
 		<th>SSN</th>
 		<th>Start Date</th>
 		<th>Job ID</th>
@@ -86,6 +86,7 @@
 		echo "<td>" . $row['Emp_Number'] . "</td>";
 		echo "<td>" . $row['First_Name'] . "</td>";
 		echo "<td>" . $row['Last_Name'] . "</td>";
+		echo "<td>" . $row['Address'] . "</td>";		
 		echo "<td>" . $row['Birth_Date'] . "</td>";
 		echo "<td>" . $row['Sex'] . "</td>";
 		echo "<td>" . $row['SSN'] . "</td>";

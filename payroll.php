@@ -70,9 +70,9 @@
 		<th></th>
 	</tr>';
 	while ($row = mysqli_fetch_array($result)) {
-		$id=$row['payroll_id'];
+		$id=$row['Payroll_ID'];
 		echo "<tr>";
-		echo "<td>" . $row['payroll_id'] . "</td>";
+		echo "<td>" . $row['Payroll_ID'] . "</td>";
 		echo "<td>" . $row['Salary'] . "</td>";
 		echo "<td>" . $row['Garnishments'] . "</td>";
 		echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
