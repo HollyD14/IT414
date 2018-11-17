@@ -79,7 +79,7 @@ I think it's probably a simple fix I just haven't looked into it yet.
 		echo "<td>" . $row['Office_Addr'] . "</td>";
 		echo "<td>" . $row['Office_Phone'] . "</td>";
 	    	echo "<td class='details'><a href='UpdateForm.php?id=$d'>Update</a></td>";
-	  	echo "<td class='details'><a href='deleteDept.php?id=$d'>Delete</a></td>";
+	  	echo "<td class='details'><a href='deleteForm.php?id=$d'>Delete</a></td>";
 		//echo "<td class='details'><button class='openButton' onclick='openForm2()'> Update Department</button></td>"; //update button pulls up form when clicked
 		echo "</tr>";
 	}
