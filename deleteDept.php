@@ -1,22 +1,16 @@
 <?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "telmon_database";
+include 'open-db.php';
+include 'headerFooter.php';
+echo "<link href='../css/pageStyle.css' rel='stylesheet' type='text/css'/>";
+$dep_number=$_POST['dep_number'];
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-echo "Connected successfully <br>";
+$sql = "DELETE from department WHERE Dept_ID=$dep_number";
 
-$id=$_GET['d'];
-$sql = "DELETE from department WHERE Dept_ID=$d";
-
-if ($conn->query($sql) === TRUE) {
-   echo "Record deleted successfully";
-} else {
-   echo "Error deleting record: " . $conn->error;
-}
-
+	if ($conn->query($sql) === TRUE) {
+		echo "<br><center><h3>Record deleted successfully</h3></center>";
+		echo "<br><center><a href='department.php'>Go back</a></center>";
+	} else {
+		echo "<br><center><h3>Error deleting record: " . $conn->error . "</h3></center>";
+		echo "<br><center><a href='department.php'>Go back</a></center>";
+	}
 ?>
