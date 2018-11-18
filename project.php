@@ -78,7 +78,7 @@
 		echo "<td>" . $row['Start_Date'] . "</td>";
 		echo "<td>" . $row['End_Date'] . "</td>";
 		echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
-		echo "<td class='details'><a href='deleteDept.php?id=$id'>Delete</a></td>";
+		echo "<td class='details'><a href='deleteFormProj.php?id=$id'>Delete</a></td>";
 		echo "</tr>";
 	}
 	echo '</table>'; ?>	
