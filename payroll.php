@@ -76,7 +76,7 @@
 		echo "<td>" . $row['Salary'] . "</td>";
 		echo "<td>" . $row['Garnishments'] . "</td>";
 		echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
-		echo "<td class='details'><a href='deleteDept.php?id=$id'>Delete</a></td>";
+		echo "<td class='details'><a href='deleteFormPay.php?id=$id'>Delete</a></td>";
 		echo "</tr>";
 	}
 	echo '</table>'; ?>	
