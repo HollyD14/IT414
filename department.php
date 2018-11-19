@@ -4,13 +4,14 @@
 		<title>Department</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="../../css/pageStyle.css" rel="stylesheet" type="text/css"/>
-		<link href="../../css/searchStyle.css" rel="stylesheet" type="text/css"/>
-		<link href="../../css/resultStyle.css" rel="stylesheet" type="text/css"/>
-		<?php include '../headerFooter.php'?>
+		<link href="../css/pageStyle.css" rel="stylesheet" type="text/css"/>
+		<link href="../css/searchStyle.css" rel="stylesheet" type="text/css"/>
+		<link href="../css/resultStyle.css" rel="stylesheet" type="text/css"/>
+		<link href="../css/popupFormStyle.css" rel="stylesheet" type="text/css"/>
+		<?php include 'headerFooter.php'?>
 	</head>
 	
-	<!--Click button to add department record -->
+					<!--*****ADD DEPARTMENT***** -->
 	<button class="openButton" onclick="openForm()"> + Add Department</button> 
 	<div class="formPopup" id="createDept"> 
 		<form action="addDept.php" method="post" class="formContainer">
@@ -26,7 +27,7 @@
 		<center><button type="submit" class="btn save">Save</button>
 		<button type="button" class="btn cancel" onclick="closeForm()">Cancel</button></center>
 		</form>
-		<script>
+		<script> //open or close form
 			function openForm(){
 			document.getElementById("createDept").style.display="block";}
 			function closeForm() {
@@ -34,32 +35,118 @@
 		</script> 
 		</div>
 
-<!--SEARCH DEPARTMENTS
-Displays results on another page. Leaving this commented out for now because for some reason it runs when you click the update button. 
-I think it's probably a simple fix I just haven't looked into it yet.
+					<!--*****SEARCH DEPARTMENTS*****--> 
+<!--form-->	
 	<div id="search">
 		<h1><center>Search Departments</center></h1>
-		<form method="POST" action="searchDept.php">
-			<label>Department No: </label><input type="text" id="dNo" name="dNo"> 
+		<form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
+			<label>Department No: </label><input type="number" id="dNo" name="dNo"> 
 			<label>Department Name: </label><input type="text" id="dName" name="dName">
 			<label>Address: </label><input type="text" id="dAddr" name="dAddr">
 			<label>Phone Number: </label><input type="text" id="dPhone" name="dPhone">
 			<input type="submit" id="searchButton" name="search" value="Search">
-	</div> 
-	
+	</div> 	
+<!--function-->
+<?php
+require 'open-db.php';
+if (isset($_POST['search'])){
+	if ($_POST['dNo']){
+		echo "<style>
+				.formDefault{
+					display: none;
+				} </style>";
+		$Dept_ID= $_POST['dNo'];
+		$id= mysqli_query($conn, "SELECT * FROM department where Dept_ID=$Dept_ID");
+		echo '<table>
+		<tr>
+			<th>Department Number</th>
+			<th>Department Name</th>
+			<th>Office Address</th>
+			<th>Office Phone</th>
+		</tr>';
+			while ($row = mysqli_fetch_array($id)) {
+				echo "<tr>";
+				echo "<td>" . $row['Dept_ID'] . "</td>";
+				echo "<td>" . $row['Dept_Name'] . "</td>";
+				echo "<td>" . $row['Office_Addr'] . "</td>";
+				echo "<td>" . $row['Office_Phone'] . "</td>";
+				echo "</tr>";}
+		echo '</table>';}
+	elseif ($_POST['dName']){
+		echo "<style>
+				.formDefault{
+					display: none;
+				} </style>";
+		$Dept_Name= $_POST['dName'];
+		$name= mysqli_query($conn, "SELECT * FROM department where Dept_Name like '%$Dept_Name%'");
+		echo '<table>
+		<tr>
+			<th>Department Number</th>
+			<th>Department Name</th>
+			<th>Office Address</th>
+			<th>Office Phone</th>
+		</tr>';
+		while ($row = mysqli_fetch_array($name)) {
+				echo "<tr>";
+				echo "<td>" . $row['Dept_ID'] . "</td>";
+				echo "<td>" . $row['Dept_Name'] . "</td>";
+				echo "<td>" . $row['Office_Addr'] . "</td>";
+				echo "<td>" . $row['Office_Phone'] . "</td>";
+				echo "</tr>";}
+		echo '</table>';}
+	elseif ($_POST['dAddr']){
+		echo "<style>
+			.formDefault{
+				display: none;
+			} </style>";
+		$Office_Addr= $_POST['dAddr'];
+		$addr= mysqli_query($conn, "SELECT * FROM department where Office_Addr like '%$Office_Addr%'");
+		echo '<table>
+		<tr>
+			<th>Department Number</th>
+			<th>Department Name</th>
+			<th>Office Address</th>
+			<th>Office Phone</th>
+		</tr>';
+		while ($row = mysqli_fetch_array($addr)) {
+				echo "<tr>";
+				echo "<td>" . $row['Dept_ID'] . "</td>";
+				echo "<td>" . $row['Dept_Name'] . "</td>";
+				echo "<td>" . $row['Office_Addr'] . "</td>";
+				echo "<td>" . $row['Office_Phone'] . "</td>";
+				echo "</tr>";}
+		echo '</table>';}
+	elseif ($_POST['dPhone']){
+		echo "<style>
+			.formDefault{
+				display: none;
+			} </style>";
+		$Office_Phone= $_POST['dPhone'];
+		$phone= mysqli_query($conn, "SELECT * FROM department where Office_Phone like '%$Office_Phone%'");
+		echo '<table><tr>
+			<th>Department Number</th>
+			<th>Department Name</th>
+			<th>Office Address</th>
+			<th>Office Phone</th></tr>';
+			while ($row = mysqli_fetch_array($phone)) {
+				echo "<tr>";
+				echo "<td>" . $row['Dept_ID'] . "</td>";
+				echo "<td>" . $row['Dept_Name'] . "</td>";
+				echo "<td>" . $row['Office_Addr'] . "</td>";
+				echo "<td>" . $row['Office_Phone'] . "</td>";
+				echo "</tr>";}	
+		echo '</table>';}
+}	
+?>
+
 	<!--Display all department info by default on main department page-->
-	<?php 
+<?php 	
 	echo '<link rel="stylesheet" type = "text/css" href="../css/results.css">';
 	echo '<link rel="stylesheet" type = "text/css" href="../css/searchStyle.css">';
 	echo '<link rel="stylesheet" type = "text/css" href="../css/style.css">';
-	$servername = "localhost";
-	$username = "username";
-	$password = "password";
-	$dbname = "telmon_database";
-
-	$conn = new mysqli($servername, $username, $password, $dbname);
+	require 'open-db.php';
 	$result= mysqli_query($conn, "SELECT Dept_ID, Dept_Name, Office_Addr, Office_Phone FROM department");
-	echo '<table>
+	echo '<div class = "formDefault"><table>
 	<tr>
 		<th>Department Number</th>
 		<th>Department Name</th>
@@ -69,48 +156,17 @@ I think it's probably a simple fix I just haven't looked into it yet.
 		<th></th>
 	</tr>';
 	while ($row = mysqli_fetch_array($result)) {
-		$d = $row['Dept_ID'];
-		$n = $row['Dept_Name'];
-		$a = $row['Office_Addr'];
-		$p = $row['Office_Phone'];	
+		$id=$row['Dept_ID'];
 		echo "<tr>";
 		echo "<td>" . $row['Dept_ID'] . "</td>";
 		echo "<td>" . $row['Dept_Name'] . "</td>";
 		echo "<td>" . $row['Office_Addr'] . "</td>";
 		echo "<td>" . $row['Office_Phone'] . "</td>";
-	    	echo "<td class='details'><a href='UpdateForm.php?id=$d'>Update</a></td>";
-	  	echo "<td class='details'><a href='deleteFormDept.php?id=$d'>Delete</a></td>";
-		//echo "<td class='details'><button class='openButton' onclick='openForm2()'> Update Department</button></td>"; //update button pulls up form when clicked
-		echo "</tr>";
-	}
-	echo '</table>'; ?>	
+		echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+		echo "<td class='details'><a href='deleteFormDept.php?id=$id'>Delete</a></td>";
+		echo "</tr>";}
+	echo '</table></div>'; ?>	
 	
-<!--UPDATE DEPARTMENT POPUP FORM -->
-<!--This is the form Jennifer created. I just put it in the main file instead of a separate file.--> 
-	<div class="formPopup" id="updateDept"> 
-	<form action="updateDept.php" method="POST">
-        <div>
-          <label for="number">Department Number:</label> <input type="text" id="dep_number" name="dep_number" value="<?php echo htmlspecialchars($d); ?>">
-        </div>
-        <div>
-          <label for="name">Department Name:</label> <input type="text" id="dep_name" name="dep_name" value="<?php echo htmlspecialchars($n); ?>">
-        </div>
-        <div>
-          <label for="address">Office Address:</label> <input    type="text" id="address" name="address" value="<?php echo htmlspecialchars($a); ?>">
-        </div>
-        <div>
-          <label for="phone">Office Phone:</label> <input type="text" id="phone" name="phone" value="<?php echo htmlspecialchars($p); ?>">
-        </div>
-		<button type="submit" class="btn save">Save</button>
-		<button type="button" class="btn cancel" onclick="closeForm2()">Cancel</button>
-    </form>
-		<script>
-			function openForm2(){
-			document.getElementById("updateDept").style.display="block";}
-			function closeForm2() {
-			document.getElementById("updateDept").style.display="none";}
-		</script> 
-		
-	</div>
+		</div>
 	</body>
 </html>
