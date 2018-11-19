@@ -56,20 +56,25 @@ if (isset($_POST['search'])){
 					display: none;
 				} </style>";
 		$Dept_ID= $_POST['dNo'];
-		$id= mysqli_query($conn, "SELECT * FROM department where Dept_ID=$Dept_ID");
+		$Did= mysqli_query($conn, "SELECT * FROM department where Dept_ID=$Dept_ID");
 		echo '<table>
 		<tr>
 			<th>Department Number</th>
 			<th>Department Name</th>
 			<th>Office Address</th>
 			<th>Office Phone</th>
+			<th></th>
+			<th></th>
 		</tr>';
-			while ($row = mysqli_fetch_array($id)) {
+			while ($row = mysqli_fetch_array($Did)) {
+				$id=$row['Dept_ID'];
 				echo "<tr>";
 				echo "<td>" . $row['Dept_ID'] . "</td>";
 				echo "<td>" . $row['Dept_Name'] . "</td>";
 				echo "<td>" . $row['Office_Addr'] . "</td>";
 				echo "<td>" . $row['Office_Phone'] . "</td>";
+				echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+				echo "<td class='details'><a href='deleteFormDept.php?id=$id'>Delete</a></td>";
 				echo "</tr>";}
 		echo '</table>';}
 	elseif ($_POST['dName']){
@@ -85,13 +90,18 @@ if (isset($_POST['search'])){
 			<th>Department Name</th>
 			<th>Office Address</th>
 			<th>Office Phone</th>
+			<th></th>
+			<th></th>
 		</tr>';
 		while ($row = mysqli_fetch_array($name)) {
+				$id=$row['Dept_ID'];
 				echo "<tr>";
 				echo "<td>" . $row['Dept_ID'] . "</td>";
 				echo "<td>" . $row['Dept_Name'] . "</td>";
 				echo "<td>" . $row['Office_Addr'] . "</td>";
 				echo "<td>" . $row['Office_Phone'] . "</td>";
+				echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+				echo "<td class='details'><a href='deleteFormDept.php?id=$id'>Delete</a></td>";
 				echo "</tr>";}
 		echo '</table>';}
 	elseif ($_POST['dAddr']){
@@ -107,13 +117,18 @@ if (isset($_POST['search'])){
 			<th>Department Name</th>
 			<th>Office Address</th>
 			<th>Office Phone</th>
+			<th></th>
+			<th></th>
 		</tr>';
 		while ($row = mysqli_fetch_array($addr)) {
+				$id=$row['Dept_ID'];
 				echo "<tr>";
 				echo "<td>" . $row['Dept_ID'] . "</td>";
 				echo "<td>" . $row['Dept_Name'] . "</td>";
 				echo "<td>" . $row['Office_Addr'] . "</td>";
 				echo "<td>" . $row['Office_Phone'] . "</td>";
+				echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+				echo "<td class='details'><a href='deleteFormDept.php?id=$id'>Delete</a></td>";
 				echo "</tr>";}
 		echo '</table>';}
 	elseif ($_POST['dPhone']){
@@ -127,13 +142,18 @@ if (isset($_POST['search'])){
 			<th>Department Number</th>
 			<th>Department Name</th>
 			<th>Office Address</th>
-			<th>Office Phone</th></tr>';
+			<th>Office Phone</th>
+			<th></th>
+			<th></th></tr>';
 			while ($row = mysqli_fetch_array($phone)) {
+				$id=$row['Dept_ID'];
 				echo "<tr>";
 				echo "<td>" . $row['Dept_ID'] . "</td>";
 				echo "<td>" . $row['Dept_Name'] . "</td>";
 				echo "<td>" . $row['Office_Addr'] . "</td>";
 				echo "<td>" . $row['Office_Phone'] . "</td>";
+				echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+				echo "<td class='details'><a href='deleteFormDept.php?id=$id'>Delete</a></td>";
 				echo "</tr>";}	
 		echo '</table>';}
 }	
