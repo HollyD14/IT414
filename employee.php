@@ -8,13 +8,11 @@
 		<link href="../css/searchStyle.css" rel="stylesheet" type="text/css"/>
 		<link href="../css/resultStyle.css" rel="stylesheet" type="text/css"/>
 		<link href="../css/popupFormStyle.css" rel="stylesheet" type="text/css"/>
+		<?php include 'headerFooter.php'?>
 	</head>
 	<body>
+					<!--*****ADD DEPARTMENT***** -->
 		<div id="container">
-		<header>
-			<?php include 'headerFooter.php'?>
-		</header>
-
 	<button class="openButton" onclick="openForm()">+ Add Employee</button>
 	<div class="formPopup" id="createEmp">
 		<form action="addEmp.php" method="post" class="formContainer"> 
@@ -39,23 +37,202 @@
 		<button type="button" class="btn cancel" onclick="closeForm()">Cancel</button></center>
 		</form>
 		<script>
-			function openForm(){
+			function openForm(){ //open or close form
 			document.getElementById("createEmp").style.display="block";}
 			function closeForm() {
 			document.getElementById("createEmp").style.display="none";}
 		</script> 
 		</div>
+		
+							<!--*****SEARCH DEPARTMENTS*****--> 
+<!--form-->	
 	<div id="search">
 		<h1><center>Search Employees</center></h1>
-		<form method="POST" action="search.php"> <!--change form action to correct file name and change variables-->
-			<label>Employee No: </label><input type="text" id="dNo" name="dNo"> 
-			<label>Employee Name: </label><input type="text" id="dName" name="dName">
-			<label>Address: </label><input type="text" id="dAddr" name="dAddr">
-			<label>Phone Number: </label><input type="text" id="dPhone" name="dPhone">
-			<label>Group: </label><input type="text" id="dSuper" name="dSuper">
-			<input type="submit" id="searchButton" value="Search">
+		<form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST"> 
+			<label>Employee No: </label><input type="number" id="eNo" name="eNo"> 
+			<label>First Name: </label><input type="text" id="fName" name="fName">
+			<label>Last Name: </label><input type="text" id="lName" name="lName">
+			<label>Start Date: </label><input type="text" id="date" name="date">
+			<input type="submit" id="searchButton" name="search" value="Search">
 	</div>
-	
+<!--function-->
+<?php
+require 'open-db.php';
+if (isset($_POST['search'])){
+	if ($_POST['eNo']){
+		echo "<style>
+				.formDefault{
+					display: none;
+				} </style>";
+		$Emp_Number= $_POST['eNo'];
+		$Eid= mysqli_query($conn, "SELECT * FROM employee where Emp_Number=$Emp_Number");
+		echo '<table>
+	<tr>
+		<th>Employee Number</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Birthdate</th>
+		<th>Sex</th>
+		<th>Address</th>
+		<th>SSN</th>
+		<th>Start Date</th>
+		<th>Job ID</th>
+		<th>Department ID</th>
+		<th>Vehicle ID</th>
+		<th>Payroll ID</th>
+		<th></th>
+		<th></th>
+	</tr>';
+			while ($row = mysqli_fetch_array($Eid)) {
+				$id=$row['Emp_Number'];
+				echo "<tr>";
+				echo "<td>" . $row['Emp_Number'] . "</td>";
+				echo "<td>" . $row['First_Name'] . "</td>";
+				echo "<td>" . $row['Last_Name'] . "</td>";
+				echo "<td>" . $row['Birth_Date'] . "</td>";
+				echo "<td>" . $row['Sex'] . "</td>";
+				echo "<td>" . $row['Address'] . "</td>";
+				echo "<td>" . $row['SSN'] . "</td>";
+				echo "<td>" . $row['Start_Date'] . "</td>";
+				echo "<td>" . $row['J_ID'] . "</td>";
+				echo "<td>" . $row['D_ID'] . "</td>";
+				echo "<td>" . $row['V_ID'] . "</td>";
+				echo "<td>" . $row['P_ID'] . "</td>";
+				echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+				echo "<td class='details'><a href='deleteFormEmp.php?id=$id'>Delete</a></td>";
+				echo "</tr>";}
+		echo '</table>';}
+	elseif ($_POST['fName']){
+		echo "<style>
+				.formDefault{
+					display: none;
+				} </style>";
+		$First_Name= $_POST['fName'];
+		$FName= mysqli_query($conn, "SELECT * FROM employee where First_Name like '%$First_Name%'");
+		echo '<table>
+	<tr>
+		<th>Employee Number</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Birthdate</th>
+		<th>Sex</th>
+		<th>Address</th>
+		<th>SSN</th>
+		<th>Start Date</th>
+		<th>Job ID</th>
+		<th>Department ID</th>
+		<th>Vehicle ID</th>
+		<th>Payroll ID</th>
+		<th></th>
+		<th></th>
+	</tr>';
+		while ($row = mysqli_fetch_array($FName)) {
+				$id=$row['Emp_Number'];
+				echo "<tr>";
+				echo "<td>" . $row['Emp_Number'] . "</td>";
+				echo "<td>" . $row['First_Name'] . "</td>";
+				echo "<td>" . $row['Last_Name'] . "</td>";
+				echo "<td>" . $row['Birth_Date'] . "</td>";
+				echo "<td>" . $row['Sex'] . "</td>";
+				echo "<td>" . $row['Address'] . "</td>";
+				echo "<td>" . $row['SSN'] . "</td>";
+				echo "<td>" . $row['Start_Date'] . "</td>";
+				echo "<td>" . $row['J_ID'] . "</td>";
+				echo "<td>" . $row['D_ID'] . "</td>";
+				echo "<td>" . $row['V_ID'] . "</td>";
+				echo "<td>" . $row['P_ID'] . "</td>";
+				echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+				echo "<td class='details'><a href='deleteFormEmp.php?id=$id'>Delete</a></td>";
+				echo "</tr>";}
+		echo '</table>';}
+	elseif ($_POST['lName']){
+		echo "<style>
+			.formDefault{
+				display: none;
+			} </style>";
+		$Last_Name= $_POST['lName'];
+		$lName= mysqli_query($conn, "SELECT * FROM employee where Last_Name like '%$Last_Name%'");
+		echo '<table>
+	<tr>
+		<th>Employee Number</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Address</th>
+		<th>Birthdate</th>
+		<th>Sex</th>
+		<th>SSN</th>
+		<th>Start Date</th>
+		<th>Job ID</th>
+		<th>Department ID</th>
+		<th>Vehicle ID</th>
+		<th>Payroll ID</th>
+		<th></th>
+		<th></th>
+	</tr>';
+		while ($row = mysqli_fetch_array($lName)) {
+				$id=$row['Emp_Number'];
+				echo "<tr>";
+				echo "<td>" . $row['Emp_Number'] . "</td>";
+				echo "<td>" . $row['First_Name'] . "</td>";
+				echo "<td>" . $row['Last_Name'] . "</td>";
+				echo "<td>" . $row['Address'] . "</td>";
+				echo "<td>" . $row['Birth_Date'] . "</td>";
+				echo "<td>" . $row['Sex'] . "</td>";
+				echo "<td>" . $row['SSN'] . "</td>";
+				echo "<td>" . $row['Start_Date'] . "</td>";
+				echo "<td>" . $row['J_ID'] . "</td>";
+				echo "<td>" . $row['D_ID'] . "</td>";
+				echo "<td>" . $row['V_ID'] . "</td>";
+				echo "<td>" . $row['P_ID'] . "</td>";
+				echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+				echo "<td class='details'><a href='deleteFormEmp.php?id=$id'>Delete</a></td>";
+				echo "</tr>";}
+		echo '</table>';}
+	elseif ($_POST['date']){
+		echo "<style>
+			.formDefault{
+				display: none;
+			} </style>";
+		$Start_Date= $_POST['date'];
+		$date= mysqli_query($conn, "SELECT * FROM employee where Start_Date like '%$Start_Date%'");
+		echo '<table>
+	<tr>
+		<th>Employee Number</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Address</th>
+		<th>Birthdate</th>
+		<th>Sex</th>
+		<th>SSN</th>
+		<th>Start Date</th>
+		<th>Job ID</th>
+		<th>Department ID</th>
+		<th>Vehicle ID</th>
+		<th>Payroll ID</th>
+		<th></th>
+		<th></th>
+	</tr>';
+			while ($row = mysqli_fetch_array($date)) {
+				$id=$row['Emp_Number'];
+				echo "<tr>";
+				echo "<td>" . $row['Emp_Number'] . "</td>";
+				echo "<td>" . $row['First_Name'] . "</td>";
+				echo "<td>" . $row['Last_Name'] . "</td>";
+				echo "<td>" . $row['Address'] . "</td>";
+				echo "<td>" . $row['Birth_Date'] . "</td>";
+				echo "<td>" . $row['Sex'] . "</td>";
+				echo "<td>" . $row['SSN'] . "</td>";
+				echo "<td>" . $row['Start_Date'] . "</td>";
+				echo "<td>" . $row['J_ID'] . "</td>";
+				echo "<td>" . $row['D_ID'] . "</td>";
+				echo "<td>" . $row['V_ID'] . "</td>";
+				echo "<td>" . $row['P_ID'] . "</td>";
+				echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+				echo "<td class='details'><a href='deleteFormEmp.php?id=$id'>Delete</a></td>";
+				echo "</tr>";}
+				echo '</table>';}
+}	
+?>	
 		<!--Display all department info by default on main department page-->
 	<?php 
 	echo '<link rel="stylesheet" type = "text/css" href="../css/results.css">';
@@ -63,7 +240,7 @@
 	echo '<link rel="stylesheet" type = "text/css" href="../css/style.css">';
 	require 'open-db.php';
 	$result= mysqli_query($conn, "SELECT * FROM employee");
-	echo '<table>
+	echo '<div class = "formDefault"><table>
 	<tr>
 		<th>Employee Number</th>
 		<th>First Name</th>
