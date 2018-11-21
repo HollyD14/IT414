@@ -19,7 +19,7 @@ echo "Connected successfully <br>";
 
 
 //Single line to update the database from the form data
-$sql = "UPDATE payroll SET Salary = '".$_POST['Salary']."', Garnishments = '".$_POST['Garnishments']."' WHERE Payroll_ID = $pnum";
+$sql = "UPDATE payroll SET Salary = '".$_POST['Salary']."', Garnishments = NULLIF('".$_POST['Garnishments']."','') WHERE Payroll_ID = $pnum";
 
  
 //Following block returns the user to the updated department page when successfull,

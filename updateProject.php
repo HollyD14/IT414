@@ -20,7 +20,7 @@ echo "Connected successfully <br>";
 
 
 //Single line to update the database from the form data
-$sql = "UPDATE project SET Project_Name = '".$_POST['Project_Name']."', Start_Date = '".$_POST['Start_Date']."', End_Date = '".$_POST['End_Date']."' WHERE Project_ID = $prnum";
+$sql = "UPDATE project SET Project_Name = '".$_POST['Project_Name']."', Start_Date = NULLIF('".$_POST['Start_Date']."',''), End_Date = NULLIF('".$_POST['End_Date']."','') WHERE Project_ID = $prnum";
 
  
 //Following block returns the user to the updated department page when successfull,

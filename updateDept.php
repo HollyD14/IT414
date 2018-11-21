@@ -20,7 +20,7 @@ echo "Connected successfully <br>";
 
 
 //Single line to update the database from the form data
-$sql = "UPDATE department SET dept_name = '".$_POST['dep_name']."', Office_addr = '".$_POST['address']."', Office_Phone = '".$_POST['phone']."' WHERE Dept_ID = $dnum";
+$sql = "UPDATE department SET dept_name = '".$_POST['dep_name']."', Office_addr = NULLIF('".$_POST['address']."',''), Office_Phone = NULLIF('".$_POST['phone']."','') WHERE Dept_ID = $dnum";
 
  
 //Following block returns the user to the updated department page when successfull,

@@ -23,7 +23,7 @@ echo "Connected successfully <br>";
 
 
 //Single line to update the database from the form data
-$sql = "UPDATE vehicle SET Make = '".$_POST['Make']."', Model = '".$_POST['Model']."', Year = '".$_POST['Year']."', Color = '".$_POST['Color']."', Plate_Number = '".$_POST['Plate_Number']."' WHERE Vehicle_ID = $vnum";
+$sql = "UPDATE vehicle SET Make = '".$_POST['Make']."', Model = '".$_POST['Model']."', Year = '".$_POST['Year']."', Color = NULLIF('".$_POST['Color']."',''), Plate_Number = NULLIF('".$_POST['Plate_Number']."','') WHERE Vehicle_ID = $vnum";
 
  
 //Following block returns the user to the updated department page when successfull,
