@@ -73,7 +73,7 @@ if (isset($_POST['search'])){
 				echo "<td>" . $row['Dept_Name'] . "</td>";
 				echo "<td>" . $row['Office_Addr'] . "</td>";
 				echo "<td>" . $row['Office_Phone'] . "</td>";
-				echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+				echo "<td class='details'><a href='UpdateDepartmentForm.php?id=$id'>Update</a></td>";
 				echo "<td class='details'><a href='deleteFormDept.php?id=$id'>Delete</a></td>";
 				echo "</tr>";}
 		echo '</table>';}
@@ -182,7 +182,7 @@ if (isset($_POST['search'])){
 		echo "<td>" . $row['Dept_Name'] . "</td>";
 		echo "<td>" . $row['Office_Addr'] . "</td>";
 		echo "<td>" . $row['Office_Phone'] . "</td>";
-		echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+		echo "<td class='details'><a href='UpdateDepartmentForm.php?id=$id'>Update</a></td>";
 		echo "<td class='details'><a href='deleteFormDept.php?id=$id'>Delete</a></td>";
 		echo "</tr>";}
 	echo '</table></div>'; ?>	

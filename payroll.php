@@ -47,7 +47,7 @@
 		</div>
 	<div id="search">
 		<h1><center>Search Payroll for Employee</center></h1>
-		<form method="POST" action="search.php"> <!--change form action to correct file name and change variables-->
+		<form method="POST" action="searchPAy.php"> <!--change form action to correct file name and change variables-->
 			<label>Employee No: </label><input type="text" id="dNo" name="dNo"> 
 			<label>Employee Name: </label><input type="text" id="dName" name="dName">
 			<label>Payroll ID: </label><input type="text" id="dAddr" name="dAddr">
@@ -60,10 +60,14 @@
 	echo '<link rel="stylesheet" type = "text/css" href="../css/searchStyle.css">';
 	echo '<link rel="stylesheet" type = "text/css" href="../css/style.css">';
 	require 'open-db.php';
-	$result= mysqli_query($conn, "SELECT * FROM payroll");
+	//$result= mysqli_query($conn, "SELECT * FROM payroll");
+	$result= mysqli_query($conn, "SELECT Payroll_ID, employee.Last_Name, Salary, Garnishments
+							  FROM payroll 
+							  INNER JOIN employee ON employee.P_ID = payroll.Payroll_ID");							  
 	echo '<table>
 	<tr>
 		<th>Payroll ID</th>
+		<th>Employee Last Name</th>
 		<th>Salary</th>
 		<th>Garnishments</th>
 		<th></th>
@@ -73,9 +77,10 @@
 		$id=$row['Payroll_ID'];
 		echo "<tr>";
 		echo "<td>" . $row['Payroll_ID'] . "</td>";
-		echo "<td>" . $row['Salary'] . "</td>";
-		echo "<td>" . $row['Garnishments'] . "</td>";
-		echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+		echo "<td>" . $row['Last_Name'] . "</td>";
+		echo "<td>" . '$'. $row['Salary'] . "</td>";
+		echo "<td>" . '$'. $row['Garnishments'] . "</td>";
+		echo "<td class='details'><a href='UpdatePayrollForm.php?id=$id'>Update</a></td>";
 		echo "<td class='details'><a href='deleteFormPay.php?id=$id'>Delete</a></td>";
 		echo "</tr>";
 	}

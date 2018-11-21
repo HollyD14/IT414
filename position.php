@@ -74,8 +74,8 @@
 		echo "<tr>";
 		echo "<td>" . $row['Job_ID'] . "</td>";
 		echo "<td>" . $row['Job_Title'] . "</td>";
-		echo "<td>" . $row['Base_Salary'] . "</td>";
-		echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+		echo "<td>" . '$'. $row['Base_Salary'] . "</td>";	
+		echo "<td class='details'><a href='UpdatePositionForm.php?id=$id'>Update</a></td>";
 		echo "<td class='details'><a href='deleteFormPos.php?id=$id'>Delete</a></td>";
 		echo "</tr>";
 	}

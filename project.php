@@ -60,7 +60,7 @@
 	echo '<link rel="stylesheet" type = "text/css" href="../css/searchStyle.css">';
 	echo '<link rel="stylesheet" type = "text/css" href="../css/style.css">';
 	require 'open-db.php';
-	$result= mysqli_query($conn, "SELECT * FROM project");
+	$result= mysqli_query($conn, "SELECT Project_ID, Project_Name, Start_Date, End_Date FROM project");
 	echo '<table>
 	<tr>
 		<th>Project ID</th>
@@ -77,7 +77,7 @@
 		echo "<td>" . $row['Project_Name'] . "</td>";
 		echo "<td>" . $row['Start_Date'] . "</td>";
 		echo "<td>" . $row['End_Date'] . "</td>";
-		echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+		echo "<td class='details'><a href='UpdateProjectForm.php?id=$id'>Update</a></td>";
 		echo "<td class='details'><a href='deleteFormProj.php?id=$id'>Delete</a></td>";
 		echo "</tr>";
 	}

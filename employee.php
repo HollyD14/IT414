@@ -239,7 +239,17 @@ if (isset($_POST['search'])){
 	echo '<link rel="stylesheet" type = "text/css" href="../css/searchStyle.css">';
 	echo '<link rel="stylesheet" type = "text/css" href="../css/style.css">';
 	require 'open-db.php';
-	$result= mysqli_query($conn, "SELECT * FROM employee");
+	$result= mysqli_query($conn, "SELECT Emp_Number, First_Name, Last_Name, Address, Birth_Date, Sex, SSN, employee.Start_Date, position.Job_Title, department.Dept_Name, project.Project_Name, payroll.Salary, V_ID  
+								  FROM employee 
+								  LEFT JOIN position ON position.Job_ID = employee.J_ID 
+								  LEFT JOIN department ON department.Dept_ID = employee.D_ID
+								  LEFT JOIN project ON project.Project_ID = employee.Proj_ID
+								  LEFT JOIN payroll ON payroll.Payroll_ID = employee.P_ID
+								  ORDER BY Emp_Number");
+								  
+//CONCAT(SUBSTR(employee.SSN,1,3), '-', SUBSTR(employee.SSN,4,2), '-', SUBSTR(employee.SSN,6,4))
+
+
 	echo '<div class = "formDefault"><table>
 	<tr>
 		<th>Employee Number</th>
@@ -250,15 +260,18 @@ if (isset($_POST['search'])){
 		<th>Sex</th>
 		<th>SSN</th>
 		<th>Start Date</th>
-		<th>Job ID</th>
-		<th>Department ID</th>
+		<th>Position</th>
+		<th>Department</th>
+		<th>Project</th>	
+		<th>Salary</th>		
 		<th>Vehicle ID</th>
-		<th>Payroll ID</th>
 		<th></th>
 		<th></th>
 	</tr>';
 	while ($row = mysqli_fetch_array($result)) {
 		$id=$row['Emp_Number'];
+		//$SSN=strtoupper($row['SSN']);
+		//$SSN = SUBSTR($row['SSN'],1,3). '-'.SUBSTR($row['SSN'],4,2). '-'. SUBSTR($row['SSN'],5,4);
 		echo "<tr>";
 		echo "<td>" . $row['Emp_Number'] . "</td>";
 		echo "<td>" . $row['First_Name'] . "</td>";
@@ -266,13 +279,15 @@ if (isset($_POST['search'])){
 		echo "<td>" . $row['Address'] . "</td>";		
 		echo "<td>" . $row['Birth_Date'] . "</td>";
 		echo "<td>" . $row['Sex'] . "</td>";
-		echo "<td>" . $row['SSN'] . "</td>";
+		echo "<td>" . SUBSTR($row['SSN'],1,3). '-'.SUBSTR($row['SSN'],4,2). '-'. SUBSTR($row['SSN'],5,4) . "</td>";
+		//echo "<td>" . $SSN ."</td>";
 		echo "<td>" . $row['Start_Date'] . "</td>";
-		echo "<td>" . $row['J_ID'] . "</td>";
-		echo "<td>" . $row['D_ID'] . "</td>";
+		echo "<td>" . $row['Job_Title'] . "</td>";
+		echo "<td>" . $row['Dept_Name'] . "</td>";
+		echo "<td>" . $row['Project_Name'] . "</td>";
+		echo "<td>" . '$'. $row['Salary'] . "</td>";		
 		echo "<td>" . $row['V_ID'] . "</td>";
-		echo "<td>" . $row['P_ID'] . "</td>";
-		echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+		echo "<td class='details'><a href='UpdateEmployeeForm.php?id=$id'>Update</a></td>";
 		echo "<td class='details'><a href='deleteFormEmp.php?id=$id'>Delete</a></td>";
 		echo "</tr>";
 	}

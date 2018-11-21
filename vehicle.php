@@ -83,7 +83,7 @@
 		echo "<td>" . $row['Year'] . "</td>";
 		echo "<td>" . $row['Color'] . "</td>";
 		echo "<td>" . $row['Plate_Number'] . "</td>";
-		echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+		echo "<td class='details'><a href='UpdateVehicleForm.php?id=$id'>Update</a></td>";
 		echo "<td class='details'><a href='deleteFormVehicle.php?id=$id'>Delete</a></td>";
 		echo "</tr>";
 	}
