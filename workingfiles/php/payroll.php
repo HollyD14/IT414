@@ -77,7 +77,7 @@ if (isset($_POST['search'])){
 		<th></th>
 	</tr>';
 			while ($row = mysqli_fetch_array($Eid)) {
-				$id=$row['Emp_Number'];
+				$id=$row['Payroll_ID'];
 				echo "<tr>";
 				echo "<td>" . $row['Payroll_ID'] . "</td>";
 				echo "<td>" . $row['First_Name'] . "</td>";
@@ -104,7 +104,7 @@ if (isset($_POST['search'])){
 		<th></th>
 	</tr>';
 		while ($row = mysqli_fetch_array($fName)) {
-				$id=$row['Emp_Number'];
+				$id=$row['Payroll_ID'];
 				echo "<tr>";
 				echo "<td>" . $row['Payroll_ID'] . "</td>";
 				echo "<td>" . $row['First_Name'] . "</td>";
@@ -131,7 +131,7 @@ if (isset($_POST['search'])){
 		<th></th>
 	</tr>';
 		while ($row = mysqli_fetch_array($lName)) {
-				$id=$row['Emp_Number'];
+				$id=$row['Payroll_ID'];
 				echo "<tr>";
 				echo "<td>" . $row['Payroll_ID'] . "</td>";
 				echo "<td>" . $row['First_Name'] . "</td>";
@@ -158,7 +158,7 @@ if (isset($_POST['search'])){
 		<th></th>
 	</tr>';
 			while ($row = mysqli_fetch_array($Pid)) {
-				$id=$row['Emp_Number'];
+				$id=$row['Payroll_ID'];
 				echo "<tr>";
 				echo "<td>" . $row['Payroll_ID'] . "</td>";
 				echo "<td>" . $row['First_Name'] . "</td>";
