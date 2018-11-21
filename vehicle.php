@@ -89,7 +89,7 @@ if (isset($_POST['search'])){
 			echo "<td>" . $row['Color'] . "</td>";
 			echo "<td>" . $row['Plate_Number'] . "</td>";
 			echo "<td>" . $row['First_Name'] . " " . $row['Last_Name']. "</td>";
-			echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+			echo "<td class='details'><a href='UpdateVehicleForm.php.php?id=$id'>Update</a></td>";
 		echo "</tr>";}
 	echo '</table>'; }
 	elseif ($_POST['make']){
@@ -120,7 +120,7 @@ if (isset($_POST['search'])){
 			echo "<td>" . $row['Color'] . "</td>";
 			echo "<td>" . $row['Plate_Number'] . "</td>";
 			echo "<td>" . $row['First_Name'] . " " . $row['Last_Name']. "</td>";
-			echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+			echo "<td class='details'><a href='UpdateVehicleForm.php.php?id=$id'>Update</a></td>";
 		echo "</tr>";}
 	echo '</table>';} 
 	elseif ($_POST['model']){
@@ -151,7 +151,7 @@ if (isset($_POST['search'])){
 			echo "<td>" . $row['Color'] . "</td>";
 			echo "<td>" . $row['Plate_Number'] . "</td>";
 			echo "<td>" . $row['First_Name'] . " " . $row['Last_Name']. "</td>";
-			echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+			echo "<td class='details'><a href='UpdateVehicleForm.php?id=$id'>Update</a></td>";
 		echo "</tr>";}
 	echo '</table>';} 
 	elseif ($_POST['y']){
@@ -182,7 +182,7 @@ if (isset($_POST['search'])){
 			echo "<td>" . $row['Color'] . "</td>";
 			echo "<td>" . $row['Plate_Number'] . "</td>";
 			echo "<td>" . $row['First_Name'] . " " . $row['Last_Name']. "</td>";
-			echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+			echo "<td class='details'><a href='UpdateVehicleForm.php?id=$id'>Update</a></td>";
 			echo "</tr>";}
 			echo "</table>";}	
 	elseif ($_POST['eNo']){
@@ -213,7 +213,7 @@ if (isset($_POST['search'])){
 			echo "<td>" . $row['Color'] . "</td>";
 			echo "<td>" . $row['Plate_Number'] . "</td>";
 			echo "<td>" . $row['First_Name'] . " " . $row['Last_Name']. "</td>";
-			echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+			echo "<td class='details'><a href='UpdateVehicleForm.php?id=$id'>Update</a></td>";
 		echo "</tr>";}
 	echo '</table>';} 
 			}
