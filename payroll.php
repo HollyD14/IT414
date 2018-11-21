@@ -45,14 +45,131 @@
 			document.getElementById("createEmp").style.display="none";}
 		</script> 
 		</div>
+	<!--*****SEARCH PAYROLL*****-->
+<!--form-->
 	<div id="search">
-		<h1><center>Search Payroll for Employee</center></h1>
-		<form method="POST" action="searchPAy.php"> <!--change form action to correct file name and change variables-->
-			<label>Employee No: </label><input type="text" id="dNo" name="dNo"> 
-			<label>Employee Name: </label><input type="text" id="dName" name="dName">
-			<label>Payroll ID: </label><input type="text" id="dAddr" name="dAddr">
-			<input type="submit" id="searchButton" value="Search">
+		<h1><center>Search Employee Payroll Records</center></h1>
+		<form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
+			<label>Employee No: </label><input type="text" id="eNo" name="eNo"> 
+			<label>First Name: </label><input type="text" id="fName" name="fName">
+			<label>Last Name: </label><input type="text" id="lName" name="lName">
+			<label>Payroll ID: </label><input type="text" id="Pid" name="Pid">
+			<input type="submit" id="searchButton" name="search" value="Search">
 	</div>
+<!--function-->
+<?php
+require 'open-db.php';
+if (isset($_POST['search'])){
+	if ($_POST['eNo']){
+		echo "<style>
+				.formDefault{
+					display: none;
+				} </style>";
+		$Emp_Number= $_POST['eNo'];
+		$Eid= mysqli_query($conn, "SELECT Emp_Number, Payroll_ID, First_Name, Last_Name, Salary, Garnishments FROM employee join payroll on P_ID=Payroll_ID where Emp_Number=$Emp_Number");
+		echo '<table>
+	<tr>
+		<th>Payroll ID</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Salary</th>
+		<th>Garnishments</th>
+		<th></th>
+	</tr>';
+			while ($row = mysqli_fetch_array($Eid)) {
+				$id=$row['Emp_Number'];
+				echo "<tr>";
+				echo "<td>" . $row['Payroll_ID'] . "</td>";
+				echo "<td>" . $row['First_Name'] . "</td>";
+				echo "<td>" . $row['Last_Name'] . "</td>";
+				echo "<td>" . $row['Salary'] . "</td>";
+				echo "<td>" . $row['Garnishments'] . "</td>";
+				echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+				echo "</tr>";}
+		echo '</table>';}
+	elseif ($_POST['fName']){
+		echo "<style>
+				.formDefault{
+					display: none;
+				} </style>";
+		$First_Name= $_POST['fName'];
+		$fName= mysqli_query($conn, "SELECT Emp_Number, Payroll_ID, First_Name, Last_Name, Salary, Garnishments FROM employee join payroll on P_ID=Payroll_ID where First_Name like '%$First_Name%'");
+		echo '<table>
+	<tr>
+		<th>Payroll ID</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Salary</th>
+		<th>Garnishments</th>
+		<th></th>
+	</tr>';
+		while ($row = mysqli_fetch_array($fName)) {
+				$id=$row['Emp_Number'];
+				echo "<tr>";
+				echo "<td>" . $row['Payroll_ID'] . "</td>";
+				echo "<td>" . $row['First_Name'] . "</td>";
+				echo "<td>" . $row['Last_Name'] . "</td>";
+				echo "<td>" . $row['Salary'] . "</td>";
+				echo "<td>" . $row['Garnishments'] . "</td>";
+				echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+				echo "</tr>";}
+		echo '</table>';}
+	elseif ($_POST['lName']){
+		echo "<style>
+			.formDefault{
+				display: none;
+			} </style>";
+		$Last_Name= $_POST['lName'];
+		$lName= mysqli_query($conn, "SELECT Emp_Number, Payroll_ID, First_Name, Last_Name, Salary, Garnishments FROM employee join payroll on P_ID=Payroll_ID where Last_Name like '%$Last_Name%'");
+		echo '<table>
+	<tr>
+		<th>Payroll ID</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Salary</th>
+		<th>Garnishments</th>
+		<th></th>
+	</tr>';
+		while ($row = mysqli_fetch_array($lName)) {
+				$id=$row['Emp_Number'];
+				echo "<tr>";
+				echo "<td>" . $row['Payroll_ID'] . "</td>";
+				echo "<td>" . $row['First_Name'] . "</td>";
+				echo "<td>" . $row['Last_Name'] . "</td>";
+				echo "<td>" . $row['Salary'] . "</td>";
+				echo "<td>" . $row['Garnishments'] . "</td>";
+				echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+				echo "</tr>";}
+		echo '</table>';}
+	elseif ($_POST['Pid']){
+		echo "<style>
+				.formDefault{
+					display: none;
+				} </style>";
+		$Payroll_ID= $_POST['Pid'];
+		$Pid= mysqli_query($conn, "SELECT Emp_Number, Payroll_ID, First_Name, Last_Name, Salary, Garnishments FROM employee join payroll on P_ID=Payroll_ID where Payroll_ID=$Payroll_ID");
+		echo '<table>
+	<tr>
+		<th>Payroll ID</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Salary</th>
+		<th>Garnishments</th>
+		<th></th>
+	</tr>';
+			while ($row = mysqli_fetch_array($Pid)) {
+				$id=$row['Emp_Number'];
+				echo "<tr>";
+				echo "<td>" . $row['Payroll_ID'] . "</td>";
+				echo "<td>" . $row['First_Name'] . "</td>";
+				echo "<td>" . $row['Last_Name'] . "</td>";
+				echo "<td>" . $row['Salary'] . "</td>";
+				echo "<td>" . $row['Garnishments'] . "</td>";
+				echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+				echo "</tr>";}
+		echo '</table>';}
+}	
+?>	
 	
 		<!--Display all department info by default on main department page-->
 	<?php 
@@ -64,7 +181,7 @@
 	$result= mysqli_query($conn, "SELECT Payroll_ID, employee.Last_Name, Salary, Garnishments
 							  FROM payroll 
 							  INNER JOIN employee ON employee.P_ID = payroll.Payroll_ID");							  
-	echo '<table>
+	echo '<div class = "formDefault"><table>
 	<tr>
 		<th>Payroll ID</th>
 		<th>Employee Last Name</th>
@@ -84,7 +201,7 @@
 		echo "<td class='details'><a href='deleteFormPay.php?id=$id'>Delete</a></td>";
 		echo "</tr>";
 	}
-	echo '</table>'; ?>	
+	echo '</table></div>'; ?>	
 
 		</div>
 	
