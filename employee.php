@@ -98,7 +98,7 @@ if (isset($_POST['search'])){
 				echo "<td>" . $row['D_ID'] . "</td>";
 				echo "<td>" . $row['V_ID'] . "</td>";
 				echo "<td>" . $row['P_ID'] . "</td>";
-				echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+				echo "<td class='details'><a href='UpdateEmployeeForm.php?id=$id'>Update</a></td>";
 				echo "<td class='details'><a href='deleteFormEmp.php?id=$id'>Delete</a></td>";
 				echo "</tr>";}
 		echo '</table>';}
@@ -141,7 +141,7 @@ if (isset($_POST['search'])){
 				echo "<td>" . $row['D_ID'] . "</td>";
 				echo "<td>" . $row['V_ID'] . "</td>";
 				echo "<td>" . $row['P_ID'] . "</td>";
-				echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+				echo "<td class='details'><a href='UpdateEmployeeForm.php?id=$id'>Update</a></td>";
 				echo "<td class='details'><a href='deleteFormEmp.php?id=$id'>Delete</a></td>";
 				echo "</tr>";}
 		echo '</table>';}
@@ -184,7 +184,7 @@ if (isset($_POST['search'])){
 				echo "<td>" . $row['D_ID'] . "</td>";
 				echo "<td>" . $row['V_ID'] . "</td>";
 				echo "<td>" . $row['P_ID'] . "</td>";
-				echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+				echo "<td class='details'><a href='UpdateEmployeeForm.php?id=$id'>Update</a></td>";
 				echo "<td class='details'><a href='deleteFormEmp.php?id=$id'>Delete</a></td>";
 				echo "</tr>";}
 		echo '</table>';}
@@ -227,7 +227,7 @@ if (isset($_POST['search'])){
 				echo "<td>" . $row['D_ID'] . "</td>";
 				echo "<td>" . $row['V_ID'] . "</td>";
 				echo "<td>" . $row['P_ID'] . "</td>";
-				echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+				echo "<td class='details'><a href='UpdateEmployeeForm.php?id=$id'>Update</a></td>";
 				echo "<td class='details'><a href='deleteFormEmp.php?id=$id'>Delete</a></td>";
 				echo "</tr>";}
 				echo '</table>';}
