@@ -84,7 +84,7 @@ if (isset($_POST['search'])){
 				echo "<td>" . $row['Last_Name'] . "</td>";
 				echo "<td>" . $row['Salary'] . "</td>";
 				echo "<td>" . $row['Garnishments'] . "</td>";
-				echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+				echo "<td class='details'><a href='UpdatePayrollForm.php?id=$id'>Update</a></td>";
 				echo "</tr>";}
 		echo '</table>';}
 	elseif ($_POST['fName']){
@@ -111,7 +111,7 @@ if (isset($_POST['search'])){
 				echo "<td>" . $row['Last_Name'] . "</td>";
 				echo "<td>" . $row['Salary'] . "</td>";
 				echo "<td>" . $row['Garnishments'] . "</td>";
-				echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+				echo "<td class='details'><a href='UpdatePayrollForm.php?id=$id'>Update</a></td>";
 				echo "</tr>";}
 		echo '</table>';}
 	elseif ($_POST['lName']){
@@ -138,7 +138,7 @@ if (isset($_POST['search'])){
 				echo "<td>" . $row['Last_Name'] . "</td>";
 				echo "<td>" . $row['Salary'] . "</td>";
 				echo "<td>" . $row['Garnishments'] . "</td>";
-				echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+				echo "<td class='details'><a href='UpdatePayrollForm.php?id=$id'>Update</a></td>";
 				echo "</tr>";}
 		echo '</table>';}
 	elseif ($_POST['Pid']){
@@ -165,7 +165,7 @@ if (isset($_POST['search'])){
 				echo "<td>" . $row['Last_Name'] . "</td>";
 				echo "<td>" . $row['Salary'] . "</td>";
 				echo "<td>" . $row['Garnishments'] . "</td>";
-				echo "<td class='details'><a href='UpdateForm.php?id=$id'>Update</a></td>";
+				echo "<td class='details'><a href='UpdatePayrollForm.php?id=$id'>Update</a></td>";
 				echo "</tr>";}
 		echo '</table>';}
 }	
