@@ -178,13 +178,13 @@ if (isset($_POST['search'])){
 	echo '<link rel="stylesheet" type = "text/css" href="../css/style.css">';
 	require 'open-db.php';
 	//$result= mysqli_query($conn, "SELECT * FROM payroll");
-	$result= mysqli_query($conn, "SELECT Payroll_ID, employee.Last_Name, Salary, Garnishments
+	$result= mysqli_query($conn, "SELECT Payroll_ID, employee.First_Name, employee.Last_Name, Salary, Garnishments
 							  FROM payroll 
 							  INNER JOIN employee ON employee.P_ID = payroll.Payroll_ID");							  
 	echo '<div class = "formDefault"><table>
 	<tr>
 		<th>Payroll ID</th>
-		<th>Employee Last Name</th>
+		<th>Employee Name</th>
 		<th>Salary</th>
 		<th>Garnishments</th>
 		<th></th>
@@ -194,7 +194,7 @@ if (isset($_POST['search'])){
 		$id=$row['Payroll_ID'];
 		echo "<tr>";
 		echo "<td>" . $row['Payroll_ID'] . "</td>";
-		echo "<td>" . $row['Last_Name'] . "</td>";
+		echo "<td>" . $row['First_Name'] . ' ' . $row['Last_Name'] . "</td>";
 		echo "<td>" . '$'. $row['Salary'] . "</td>";
 		echo "<td>" . '$'. $row['Garnishments'] . "</td>";
 		echo "<td class='details'><a href='UpdatePayrollForm.php?id=$id'>Update</a></td>";
