@@ -14,37 +14,29 @@
 		<header>
 			<?php include 'headerFooter.php'?>
 		</header>
-
-	<button class="openButton" onclick="openForm()">+ Add Employee</button>
+			<!--*****ADD PAYROLL***** -->
+	<button class="openButton" onclick="openForm()">+ Add Payroll</button>
 	<div class="formPopup" id="createEmp">
-		<form action="addEmp.php" method="post" class="formContainer"> 
-			<h1>Add Employee</h1>
-			<label for="Employee No."><b>Employee No.</b></label>
-			<input type="number" placeholder="Enter Employee #" name="eNo" required><br>
-			<label for="First Name"><b>First Name</b></label>
-			<input type="text" placeholder="Enter First Name" name="eFName" required><br>
-			<label for="Last Name"><b>Last Name</b></label> 
-			<input type="text" placeholder="Enter Last Name" name="eLName" required><br>
-			<label for="Office Address"><b>Date of Birth</b></label> 
-			<input type="text" placeholder="Enter birth date" name="bdate"><br>
-			<label for="Office Address"><b>Sex</b></label> 
-			<input type="text" placeholder="Enter sex" name="sex"><br>
-			<label for="Office Address"><b>Address</b></label> 
-			<input type="text" placeholder="Enter Home Address" name="eAddr"><br>
-			<label for="Office Address"><b>SSN</b></label> 
-			<input type="text" placeholder="Enter SSN" name="ssn"><br>
-			<label for="Emp Phone Number"><b>Start Date</b></label>
-			<input type="text" placeholder="Enter Start Date" name="startDate"><br>
+		<form action="addPay.php" method="post" class="formContainer"> 
+			<h1>Add Payroll</h1>
+			<label for="Payroll ID"><b>Payroll ID</b></label>
+			<input type="number" placeholder="Enter Payroll #" name="pNo" required><br>
+			<label for="Employee Name"><b>Employee Name</b></label>
+			<input type="text" placeholder="Enter Name" name="eName" required><br>
+			<label for="Salary"><b>Salary</b></label> 
+			<input type="text" placeholder="Enter Salary" name="salary" required><br>
+			<label for="Garnishment"><b>Garnishment</b></label> 
+			<input type="text" placeholder=" Enter Wage Garnishment" name="garnishment"><br>
 		<center><button type="submit" class="btn save">Save</button>
 		<button type="button" class="btn cancel" onclick="closeForm()">Cancel</button></center>
 		</form>
-		<script>
+		<script> //open or close form
 			function openForm(){
-			document.getElementById("createEmp").style.display="block";}
+			document.getElementById("createDept").style.display="block";}
 			function closeForm() {
-			document.getElementById("createEmp").style.display="none";}
+			document.getElementById("createDept").style.display="none";}
 		</script> 
-		</div>
+		</div>		
 	<!--*****SEARCH PAYROLL*****-->
 <!--form-->
 	<div id="search">

@@ -14,27 +14,23 @@
 		<header>
 			<?php include 'headerFooter.php'?>
 		</header>
-
-	<button class="openButton" onclick="openForm()">+ Add Employee</button>
+										<!--*****ADD VEHICLE***** -->
+	<button class="openButton" onclick="openForm()">+ Add Vehicle</button>
 	<div class="formPopup" id="createEmp">
-		<form action="addEmp.php" method="post" class="formContainer"> 
-			<h1>Add Employee</h1>
-			<label for="Employee No."><b>Employee No.</b></label>
-			<input type="number" placeholder="Enter Employee #" name="eNo" required><br>
-			<label for="First Name"><b>First Name</b></label>
-			<input type="text" placeholder="Enter First Name" name="eFName" required><br>
-			<label for="Last Name"><b>Last Name</b></label> 
-			<input type="text" placeholder="Enter Last Name" name="eLName" required><br>
-			<label for="Office Address"><b>Date of Birth</b></label> 
-			<input type="text" placeholder="Enter birth date" name="bdate"><br>
-			<label for="Office Address"><b>Sex</b></label> 
-			<input type="text" placeholder="Enter sex" name="sex"><br>
-			<label for="Office Address"><b>Address</b></label> 
-			<input type="text" placeholder="Enter Home Address" name="eAddr"><br>
-			<label for="Office Address"><b>SSN</b></label> 
-			<input type="text" placeholder="Enter SSN" name="ssn"><br>
-			<label for="Emp Phone Number"><b>Start Date</b></label>
-			<input type="text" placeholder="Enter Start Date" name="startDate"><br>
+		<form action="addVehicle.php" method="post" class="formContainer"> 
+			<h1>Add Vehicle</h1>
+			<label for="Vehicle No."><b>Vehicle No.</b></label>
+			<input type="number" placeholder="Enter Vehicle #" name="vNo" required><br>
+			<label for="Vehicle Make"><b>Make</b></label>
+			<input type="text" placeholder="Enter make" name="make" required><br>
+			<label for="Vehicle Model"><b>Model</b></label> 
+			<input type="text" placeholder="Enter model" name="model" required><br>
+		    <label for="Year"><b>Year</b></label> 
+			<input type="number" placeholder="Enter year" name="year"><br>
+			<label for="Color"><b>Color</b></label> 
+			<input type="text" placeholder="Enter color" name="color"><br>
+			<label for="Plate Number"><b>Plate #</b></label> 
+			<input type="text" placeholder="Enter License Plate" name="pNumber"><br> 
 		<center><button type="submit" class="btn save">Save</button>
 		<button type="button" class="btn cancel" onclick="closeForm()">Cancel</button></center>
 		</form>

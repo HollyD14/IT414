@@ -11,7 +11,7 @@
 		<?php include 'headerFooter.php'?>
 	</head>
 	<body>
-					<!--*****ADD DEPARTMENT***** -->
+					<!--*****ADD EMPLOYEE***** -->
 		<div id="container">
 	<button class="openButton" onclick="openForm()">+ Add Employee</button>
 	<div class="formPopup" id="createEmp">
@@ -33,6 +33,8 @@
 			<input type="text" placeholder="Enter SSN" name="ssn"><br>
 			<label for="Emp Phone Number"><b>Start Date</b></label>
 			<input type="text" placeholder="Enter Start Date" name="startDate"><br>
+			<label for="Salary"><b>Employee Salary</b></label>
+			<input type="text" placeholder="Enter Salary" name="salary"><br>
 		<center><button type="submit" class="btn save">Save</button>
 		<button type="button" class="btn cancel" onclick="closeForm()">Cancel</button></center>
 		</form>
@@ -44,7 +46,7 @@
 		</script> 
 		</div>
 		
-							<!--*****SEARCH DEPARTMENTS*****--> 
+							<!--*****SEARCH EMPLOYEES*****--> 
 <!--form-->	
 	<div id="search">
 		<h1><center>Search Employees</center></h1>

@@ -14,27 +14,18 @@
 		<header>
 			<?php include 'headerFooter.php'?>
 		</header>
-
-	<button class="openButton" onclick="openForm()">+ Add Employee</button>
+		
+							<!--*****ADD POSITION***** -->
+	<button class="openButton" onclick="openForm()">+ Add Position</button>
 	<div class="formPopup" id="createEmp">
-		<form action="addEmp.php" method="post" class="formContainer"> 
-			<h1>Add Employee</h1>
-			<label for="Employee No."><b>Employee No.</b></label>
-			<input type="number" placeholder="Enter Employee #" name="eNo" required><br>
-			<label for="First Name"><b>First Name</b></label>
-			<input type="text" placeholder="Enter First Name" name="eFName" required><br>
-			<label for="Last Name"><b>Last Name</b></label> 
-			<input type="text" placeholder="Enter Last Name" name="eLName" required><br>
-			<label for="Office Address"><b>Date of Birth</b></label> 
-			<input type="text" placeholder="Enter birth date" name="bdate"><br>
-			<label for="Office Address"><b>Sex</b></label> 
-			<input type="text" placeholder="Enter sex" name="sex"><br>
-			<label for="Office Address"><b>Address</b></label> 
-			<input type="text" placeholder="Enter Home Address" name="eAddr"><br>
-			<label for="Office Address"><b>SSN</b></label> 
-			<input type="text" placeholder="Enter SSN" name="ssn"><br>
-			<label for="Emp Phone Number"><b>Start Date</b></label>
-			<input type="text" placeholder="Enter Start Date" name="startDate"><br>
+		<form action="addPos.php" method="post" class="formContainer"> 
+			<h1>Add Position</h1>
+			<label for="Job ID"><b>Job ID</b></label>
+			<input type="number" placeholder="Enter Job ID" name="jNo" required><br>
+			<label for="Job Title"><b>Job Title</b></label>
+			<input type="text" placeholder="Enter Job Title" name="jTitle" required><br>
+			<label for="Base Salary"><b>Base Salary</b></label> 
+			<input type="number" placeholder="Enter Base Salary" name="base" required><br>
 		<center><button type="submit" class="btn save">Save</button>
 		<button type="button" class="btn cancel" onclick="closeForm()">Cancel</button></center>
 		</form>
