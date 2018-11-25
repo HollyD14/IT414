@@ -33,8 +33,6 @@
 			<input type="text" placeholder="Enter SSN" name="ssn"><br>
 			<label for="Emp Phone Number"><b>Start Date</b></label>
 			<input type="text" placeholder="Enter Start Date" name="startDate"><br>
-			<label for="Salary"><b>Employee Salary</b></label>
-			<input type="text" placeholder="Enter Salary" name="salary"><br>
 		<center><button type="submit" class="btn save">Save</button>
 		<button type="button" class="btn cancel" onclick="closeForm()">Cancel</button></center>
 		</form>
@@ -100,8 +98,8 @@ if (isset($_POST['search'])){
 				echo "<td>" . $row['D_ID'] . "</td>";
 				echo "<td>" . $row['V_ID'] . "</td>";
 				echo "<td>" . $row['P_ID'] . "</td>";
-				echo "<td class='details'><a href='UpdateEmployeeForm.php?id=$id'>Update</a></td>";
-				echo "<td class='details'><a href='deleteFormEmp.php?id=$id'>Delete</a></td>";
+				echo "<td class='details'><a href='UpdateEmployeeForm.php?id=$id'><b>Update</b></a></td>";
+				echo "<td class='details'><a href='deleteFormEmp.php?id=$id'><b style= 'color: #993333;'>Delete</b></a></td>";
 				echo "</tr>";}
 		echo '</table>';}
 	elseif ($_POST['fName']){
@@ -143,8 +141,8 @@ if (isset($_POST['search'])){
 				echo "<td>" . $row['D_ID'] . "</td>";
 				echo "<td>" . $row['V_ID'] . "</td>";
 				echo "<td>" . $row['P_ID'] . "</td>";
-				echo "<td class='details'><a href='UpdateEmployeeForm.php?id=$id'>Update</a></td>";
-				echo "<td class='details'><a href='deleteFormEmp.php?id=$id'>Delete</a></td>";
+				echo "<td class='details'><a href='UpdateEmployeeForm.php?id=$id'><b>Update</b></a></td>";
+				echo "<td class='details'><a href='deleteFormEmp.php?id=$id'><b style= 'color: #993333;'>Delete</b></a></td>";
 				echo "</tr>";}
 		echo '</table>';}
 	elseif ($_POST['lName']){
@@ -186,8 +184,8 @@ if (isset($_POST['search'])){
 				echo "<td>" . $row['D_ID'] . "</td>";
 				echo "<td>" . $row['V_ID'] . "</td>";
 				echo "<td>" . $row['P_ID'] . "</td>";
-				echo "<td class='details'><a href='UpdateEmployeeForm.php?id=$id'>Update</a></td>";
-				echo "<td class='details'><a href='deleteFormEmp.php?id=$id'>Delete</a></td>";
+				echo "<td class='details'><a href='UpdateEmployeeForm.php?id=$id'><b>Update</b></a></td>";
+				echo "<td class='details'><a href='deleteFormEmp.php?id=$id'><b style= 'color: #993333;'>Delete</b></a></td>";
 				echo "</tr>";}
 		echo '</table>';}
 	elseif ($_POST['date']){
@@ -229,8 +227,8 @@ if (isset($_POST['search'])){
 				echo "<td>" . $row['D_ID'] . "</td>";
 				echo "<td>" . $row['V_ID'] . "</td>";
 				echo "<td>" . $row['P_ID'] . "</td>";
-				echo "<td class='details'><a href='UpdateEmployeeForm.php?id=$id'>Update</a></td>";
-				echo "<td class='details'><a href='deleteFormEmp.php?id=$id'>Delete</a></td>";
+				echo "<td class='details'><a href='UpdateEmployeeForm.php?id=$id'><b>Update</b></a></td>";
+				echo "<td class='details'><a href='deleteFormEmp.php?id=$id'><b style= 'color: #993333;'>Delete</b></a></td>";
 				echo "</tr>";}
 				echo '</table>';}
 }	
@@ -289,8 +287,8 @@ if (isset($_POST['search'])){
 		echo "<td>" . $row['Project_Name'] . "</td>";
 		echo "<td>" . '$'. $row['Salary'] . "</td>";		
 		echo "<td>" . $row['V_ID'] . "</td>";
-		echo "<td class='details'><a href='UpdateEmployeeForm.php?id=$id'>Update</a></td>";
-		echo "<td class='details'><a href='deleteFormEmp.php?id=$id'>Delete</a></td>";
+		echo "<td class='details'><a href='UpdateEmployeeForm.php?id=$id'><b>Update</b></a></td>";
+		echo "<td class='details'><a href='deleteFormEmp.php?id=$id'><b style= 'color: #993333;'>Delete</b></a></td>";
 		echo "</tr>";
 	}
 	echo '</table>'; ?>	
