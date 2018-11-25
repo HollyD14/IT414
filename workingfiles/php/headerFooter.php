@@ -9,8 +9,7 @@ echo '<body>
 			echo "<h2>" . date("h:s a") . "</h2>";
 			echo '</header>';
 echo '<nav>
-		<ul>
-			<li><a href="/php/home.php">Home</a></li> 
+		<ul> 
 			<li><a href="/php/department.php">Department</a></li>
 			<li><a href="/php/employee.php">Employees</a></li>
 			<li><a href="/php/payroll.php">Payroll</a></li>
