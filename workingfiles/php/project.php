@@ -16,7 +16,7 @@
 		</header>
 						<!--*****ADD PROJECTS***** -->
 	<button class="openButton" onclick="openForm()">+ Add Project</button>
-	<div class="formPopup" id="createEmp">
+	<div class="formPopup" id="createProj">
 		<form action="addProj.php" method="post" class="formContainer"> 
 			<h1>Add Project</h1>
 			<label for="Project ID"><b>Project No.</b></label>
@@ -32,9 +32,9 @@
 		</form>
 		<script>
 			function openForm(){
-			document.getElementById("createEmp").style.display="block";}
+			document.getElementById("createProj").style.display="block";}
 			function closeForm() {
-			document.getElementById("createEmp").style.display="none";}
+			document.getElementById("createProj").style.display="none";}
 		</script> 
 		</div>
 	<!--*****SEARCH PROJECTS*****-->		
@@ -59,7 +59,8 @@ if (isset($_POST['search'])){
 					display: none;
 				} </style>";
 		$Project_ID= $_POST['pNo'];
-		$Pid= mysqli_query($conn, "SELECT Emp_Number, Project_ID, Project_Name, First_Name, Last_Name, project.Start_Date, End_Date FROM employee join project on Proj_ID=Project_ID where Project_ID=$Project_ID");
+		$Pid= mysqli_query($conn, "SELECT Emp_Number, Project_ID, Project_Name, First_Name, Last_Name, project.Start_Date, End_Date 
+								FROM employee RIGHT JOIN project on Proj_ID=Project_ID where Project_ID=$Project_ID");
 		echo '<table>
 	<tr>
 		<th>Project ID</th>
@@ -78,8 +79,8 @@ if (isset($_POST['search'])){
 				echo "<td>" . $row['Start_Date'] . "</td>";
 				echo "<td>" . $row['End_Date'] . "</td>";
 				echo "<td>" . $row['First_Name'] . " " . $row['Last_Name']. "</td>";
-				echo "<td class='details'><a href='UpdateProjectForm.php?id=$id'>Update</a></td>";
-				echo "<td class='details'><a href='deleteFormPay.php?id=$id'>Delete</a></td>";
+				echo "<td class='details'><a href='UpdateProjectForm.php?id=$id'><b>Update</b></a></td>";
+				echo "<td class='details'><a href='deleteFormPay.php?id=$id'><b style= 'color: #993333;'>Delete</b></a></td>";
 				echo "</tr>";}
 		echo '</table>';}
 	elseif ($_POST['pName']){
@@ -88,7 +89,8 @@ if (isset($_POST['search'])){
 					display: none;
 				} </style>";
 		$Project_Name= $_POST['pName'];
-		$pName= mysqli_query($conn, "SELECT Emp_Number, Project_ID, Project_Name, First_Name, Last_Name, project.Start_Date, End_Date FROM employee join project on Proj_ID=Project_ID where Project_Name like '%$Project_Name%'");
+		$pName= mysqli_query($conn, "SELECT Emp_Number, Project_ID, Project_Name, First_Name, Last_Name, project.Start_Date, End_Date 
+									FROM employee RIGHT JOIN project on Proj_ID=Project_ID where Project_Name like '%$Project_Name%'");
 		echo '<table>
 	<tr>
 		<th>Project ID</th>
@@ -107,8 +109,8 @@ if (isset($_POST['search'])){
 				echo "<td>" . $row['Start_Date'] . "</td>";
 				echo "<td>" . $row['End_Date'] . "</td>";
 				echo "<td>" . $row['First_Name'] . " " . $row['Last_Name']. "</td>";
-				echo "<td class='details'><a href='UpdateProjectForm.php?id=$id'>Update</a></td>";
-				echo "<td class='details'><a href='deleteFormPay.php?id=$id'>Delete</a></td>";
+				echo "<td class='details'><a href='UpdateProjectForm.php?id=$id'><b>Update</b></a></td>";
+				echo "<td class='details'><a href='deleteFormPay.php?id=$id'><b style= 'color: #993333;'>Delete</b></a></td>";
 				echo "</tr>";}
 		echo '</table>';}
 	elseif ($_POST['eNo']){
@@ -117,7 +119,8 @@ if (isset($_POST['search'])){
 					display: none;
 				} </style>";
 		$Emp_Number= $_POST['eNo'];
-		$Eid= mysqli_query($conn, "SELECT Emp_Number, Project_ID, Project_Name, First_Name, Last_Name, project.Start_Date, End_Date FROM employee join project on Proj_ID=Project_ID where Emp_Number=$Emp_Number");
+		$Eid= mysqli_query($conn, "SELECT Emp_Number, Project_ID, Project_Name, First_Name, Last_Name, project.Start_Date, End_Date 
+								FROM employee LEFT JOIN project on Proj_ID=Project_ID where Emp_Number=$Emp_Number");
 		echo '<table>
 	<tr>
 		<th>Project ID</th>
@@ -136,8 +139,8 @@ if (isset($_POST['search'])){
 				echo "<td>" . $row['Start_Date'] . "</td>";
 				echo "<td>" . $row['End_Date'] . "</td>";
 				echo "<td>" . $row['First_Name'] . " " . $row['Last_Name']. "</td>";
-				echo "<td class='details'><a href='UpdateProjectForm.php?id=$id'>Update</a></td>";
-				echo "<td class='details'><a href='deleteFormPay.php?id=$id'>Delete</a></td>";
+				echo "<td class='details'><a href='UpdateProjectForm.php?id=$id'><b>Update</b></a></td>";
+				echo "<td class='details'><a href='deleteFormPay.php?id=$id'><b style= 'color: #993333;'>Delete</b></a></td>";
 				echo "</tr>";}
 		echo '</table>';}
 	elseif ($_POST['start']){
@@ -146,7 +149,8 @@ if (isset($_POST['search'])){
 				display: none;
 			} </style>";
 		$Start_Date= $_POST['start'];
-		$start= mysqli_query($conn, "SELECT Emp_Number, Project_ID, Project_Name, First_Name, Last_Name, project.Start_Date, End_Date FROM employee join project on Proj_ID=Project_ID where project.Start_Date like '%$Start_Date%'");
+		$start= mysqli_query($conn, "SELECT Emp_Number, Project_ID, Project_Name, First_Name, Last_Name, project.Start_Date, End_Date 
+									FROM employee RIGHT JOIN project on Proj_ID=Project_ID where project.Start_Date like '%$Start_Date%'");
 		echo '<table>
 	<tr>
 		<th>Project ID</th>
@@ -165,8 +169,8 @@ if (isset($_POST['search'])){
 				echo "<td>" . $row['Start_Date'] . "</td>";
 				echo "<td>" . $row['End_Date'] . "</td>";
 				echo "<td>" . $row['First_Name'] . " " . $row['Last_Name']. "</td>";
-				echo "<td class='details'><a href='UpdateProjectForm.php?id=$id'>Update</a></td>";
-				echo "<td class='details'><a href='deleteFormPay.php?id=$id'>Delete</a></td>";
+				echo "<td class='details'><a href='UpdateProjectForm.php?id=$id'><b>Update</b></a></td>";
+				echo "<td class='details'><a href='deleteFormPay.php?id=$id'><b style= 'color: #993333;'>Delete</b></a></td>";
 				echo "</tr>";}
 		echo '</table>';}
 	elseif ($_POST['end']){
@@ -175,7 +179,8 @@ if (isset($_POST['search'])){
 					display: none;
 				} </style>";
 		$End_Date= $_POST['end'];
-		$end= mysqli_query($conn, "SELECT Emp_Number, Project_ID, Project_Name, First_Name, Last_Name, project.Start_Date, End_Date FROM employee join project on Proj_ID=Project_ID where End_Date like '%$End_Date%'");
+		$end= mysqli_query($conn, "SELECT Emp_Number, Project_ID, Project_Name, First_Name, Last_Name, project.Start_Date, End_Date 
+								FROM employee RIGHT JOIN project on Proj_ID=Project_ID where End_Date like '%$End_Date%'");
 		echo '<table>
 	<tr>
 		<th>Project ID</th>
@@ -194,8 +199,8 @@ if (isset($_POST['search'])){
 				echo "<td>" . $row['Start_Date'] . "</td>";
 				echo "<td>" . $row['End_Date'] . "</td>";
 				echo "<td>" . $row['First_Name'] . " " . $row['Last_Name']. "</td>";
-				echo "<td class='details'><a href='UpdateProjectForm.php?id=$id'>Update</a></td>";
-				echo "<td class='details'><a href='deleteFormPay.php?id=$id'>Delete</a></td>";
+				echo "<td class='details'><a href='UpdateProjectForm.php?id=$id'><b>Update</b></a></td>";
+				echo "<td class='details'><a href='deleteFormPay.php?id=$id'><b style= 'color: #993333;'>Delete</b></a></td>";
 				echo "</tr>";}
 		echo '</table>';}
 }	
@@ -224,8 +229,8 @@ if (isset($_POST['search'])){
 		echo "<td>" . $row['Project_Name'] . "</td>";
 		echo "<td>" . $row['Start_Date'] . "</td>";
 		echo "<td>" . $row['End_Date'] . "</td>";
-		echo "<td class='details'><a href='UpdateProjectForm.php?id=$id'>Update</a></td>";
-		echo "<td class='details'><a href='deleteFormProj.php?id=$id'>Delete</a></td>";
+		echo "<td class='details'><a href='UpdateProjectForm.php?id=$id'><b>Update</b></a></td>";
+		echo "<td class='details'><a href='deleteFormProj.php?id=$id'><b style= 'color: #993333;'>Delete</b></a></td>";
 		echo "</tr></div>";
 	}
 	echo '</table>'; ?>	
