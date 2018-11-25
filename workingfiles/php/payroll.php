@@ -16,13 +16,11 @@
 		</header>
 			<!--*****ADD PAYROLL***** -->
 	<button class="openButton" onclick="openForm()">+ Add Payroll</button>
-	<div class="formPopup" id="createEmp">
+	<div class="formPopup" id="createPay">
 		<form action="addPay.php" method="post" class="formContainer"> 
 			<h1>Add Payroll</h1>
 			<label for="Payroll ID"><b>Payroll ID</b></label>
 			<input type="number" placeholder="Enter Payroll #" name="pNo" required><br>
-			<label for="Employee Name"><b>Employee Name</b></label>
-			<input type="text" placeholder="Enter Name" name="eName" required><br>
 			<label for="Salary"><b>Salary</b></label> 
 			<input type="text" placeholder="Enter Salary" name="salary" required><br>
 			<label for="Garnishment"><b>Garnishment</b></label> 
@@ -32,9 +30,9 @@
 		</form>
 		<script> //open or close form
 			function openForm(){
-			document.getElementById("createDept").style.display="block";}
+			document.getElementById("createPay").style.display="block";}
 			function closeForm() {
-			document.getElementById("createDept").style.display="none";}
+			document.getElementById("createPay").style.display="none";}
 		</script> 
 		</div>		
 	<!--*****SEARCH PAYROLL*****-->
@@ -58,7 +56,9 @@ if (isset($_POST['search'])){
 					display: none;
 				} </style>";
 		$Emp_Number= $_POST['eNo'];
-		$Eid= mysqli_query($conn, "SELECT Emp_Number, Payroll_ID, First_Name, Last_Name, Salary, Garnishments FROM employee join payroll on P_ID=Payroll_ID where Emp_Number=$Emp_Number");
+		$Eid= mysqli_query($conn, "SELECT Emp_Number, Payroll_ID, First_Name, Last_Name, Salary, Garnishments 
+								FROM employee 
+								LEFT JOIN payroll on P_ID=Payroll_ID where Emp_Number=$Emp_Number");
 		echo '<table>
 	<tr>
 		<th>Payroll ID</th>
@@ -76,7 +76,7 @@ if (isset($_POST['search'])){
 				echo "<td>" . $row['Last_Name'] . "</td>";
 				echo "<td>" . $row['Salary'] . "</td>";
 				echo "<td>" . $row['Garnishments'] . "</td>";
-				echo "<td class='details'><a href='UpdatePayrollForm.php?id=$id'>Update</a></td>";
+				echo "<td class='details'><a href='UpdatePayrollForm.php?id=$id'><b>Update</b></a></td>";
 				echo "</tr>";}
 		echo '</table>';}
 	elseif ($_POST['fName']){
@@ -85,7 +85,9 @@ if (isset($_POST['search'])){
 					display: none;
 				} </style>";
 		$First_Name= $_POST['fName'];
-		$fName= mysqli_query($conn, "SELECT Emp_Number, Payroll_ID, First_Name, Last_Name, Salary, Garnishments FROM employee join payroll on P_ID=Payroll_ID where First_Name like '%$First_Name%'");
+		$fName= mysqli_query($conn, "SELECT Emp_Number, Payroll_ID, First_Name, Last_Name, Salary, Garnishments 
+									FROM employee 
+									LEFT JOIN payroll on P_ID=Payroll_ID where First_Name like '%$First_Name%'");
 		echo '<table>
 	<tr>
 		<th>Payroll ID</th>
@@ -103,7 +105,7 @@ if (isset($_POST['search'])){
 				echo "<td>" . $row['Last_Name'] . "</td>";
 				echo "<td>" . $row['Salary'] . "</td>";
 				echo "<td>" . $row['Garnishments'] . "</td>";
-				echo "<td class='details'><a href='UpdatePayrollForm.php?id=$id'>Update</a></td>";
+				echo "<td class='details'><a href='UpdatePayrollForm.php?id=$id'><b>Update</b></a></td>";
 				echo "</tr>";}
 		echo '</table>';}
 	elseif ($_POST['lName']){
@@ -112,7 +114,9 @@ if (isset($_POST['search'])){
 				display: none;
 			} </style>";
 		$Last_Name= $_POST['lName'];
-		$lName= mysqli_query($conn, "SELECT Emp_Number, Payroll_ID, First_Name, Last_Name, Salary, Garnishments FROM employee join payroll on P_ID=Payroll_ID where Last_Name like '%$Last_Name%'");
+		$lName= mysqli_query($conn, "SELECT Emp_Number, Payroll_ID, First_Name, Last_Name, Salary, Garnishments 
+									FROM employee 
+									LEFT JOIN payroll on P_ID=Payroll_ID where Last_Name like '%$Last_Name%'");
 		echo '<table>
 	<tr>
 		<th>Payroll ID</th>
@@ -130,7 +134,7 @@ if (isset($_POST['search'])){
 				echo "<td>" . $row['Last_Name'] . "</td>";
 				echo "<td>" . $row['Salary'] . "</td>";
 				echo "<td>" . $row['Garnishments'] . "</td>";
-				echo "<td class='details'><a href='UpdatePayrollForm.php?id=$id'>Update</a></td>";
+				echo "<td class='details'><a href='UpdatePayrollForm.php?id=$id'><b>Update</b></a></td>";
 				echo "</tr>";}
 		echo '</table>';}
 	elseif ($_POST['Pid']){
@@ -139,7 +143,9 @@ if (isset($_POST['search'])){
 					display: none;
 				} </style>";
 		$Payroll_ID= $_POST['Pid'];
-		$Pid= mysqli_query($conn, "SELECT Emp_Number, Payroll_ID, First_Name, Last_Name, Salary, Garnishments FROM employee join payroll on P_ID=Payroll_ID where Payroll_ID=$Payroll_ID");
+		$Pid= mysqli_query($conn, "SELECT Emp_Number, Payroll_ID, First_Name, Last_Name, Salary, Garnishments 
+								FROM employee 
+								RIGHT JOIN payroll on P_ID=Payroll_ID where Payroll_ID=$Payroll_ID");
 		echo '<table>
 	<tr>
 		<th>Payroll ID</th>
@@ -157,7 +163,7 @@ if (isset($_POST['search'])){
 				echo "<td>" . $row['Last_Name'] . "</td>";
 				echo "<td>" . $row['Salary'] . "</td>";
 				echo "<td>" . $row['Garnishments'] . "</td>";
-				echo "<td class='details'><a href='UpdatePayrollForm.php?id=$id'>Update</a></td>";
+				echo "<td class='details'><a href='UpdatePayrollForm.php?id=$id'><b>Update</b></a></td>";
 				echo "</tr>";}
 		echo '</table>';}
 }	
@@ -172,7 +178,7 @@ if (isset($_POST['search'])){
 	//$result= mysqli_query($conn, "SELECT * FROM payroll");
 	$result= mysqli_query($conn, "SELECT Payroll_ID, employee.First_Name, employee.Last_Name, Salary, Garnishments
 							  FROM payroll 
-							  INNER JOIN employee ON employee.P_ID = payroll.Payroll_ID");							  
+							  LEFT JOIN employee ON employee.P_ID = payroll.Payroll_ID");							  
 	echo '<div class = "formDefault"><table>
 	<tr>
 		<th>Payroll ID</th>
@@ -189,8 +195,8 @@ if (isset($_POST['search'])){
 		echo "<td>" . $row['First_Name'] . ' ' . $row['Last_Name'] . "</td>";
 		echo "<td>" . '$'. $row['Salary'] . "</td>";
 		echo "<td>" . '$'. $row['Garnishments'] . "</td>";
-		echo "<td class='details'><a href='UpdatePayrollForm.php?id=$id'>Update</a></td>";
-		echo "<td class='details'><a href='deleteFormPay.php?id=$id'>Delete</a></td>";
+		echo "<td class='update'><a href='UpdatePayrollForm.php?id=$id'><b>Update</b></a></td>";
+		echo "<td class='delete'><a href='deleteFormPay.php?id=$id'><b style= 'color: #993333;'>Delete</b></a></td>";
 		echo "</tr>";
 	}
 	echo '</table></div>'; ?>	
