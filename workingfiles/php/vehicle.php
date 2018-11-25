@@ -63,7 +63,8 @@ if (isset($_POST['search'])){
 					display: none;
 				} </style>";
 		$Vehicle_ID= $_POST['vNo'];
-		$Vid= mysqli_query($conn, "SELECT Emp_Number, Vehicle_ID, First_Name, Last_Name, Make, Model, Year, Color, Plate_Number FROM employee join vehicle on Vehicle_ID=V_ID where Vehicle_ID=$Vehicle_ID");
+		$Vid= mysqli_query($conn, "SELECT Emp_Number, Vehicle_ID, First_Name, Last_Name, Make, Model, Year, Color, Plate_Number 
+								FROM employee RIGHT JOIN vehicle on Vehicle_ID=V_ID where Vehicle_ID=$Vehicle_ID");
 		echo '<table>
 	<tr>
 		<th>Vehicle ID</th>
@@ -73,6 +74,7 @@ if (isset($_POST['search'])){
 		<th>Color</th>
 		<th>Plate Number</th>
 		<th>Assigned To</th>
+		<th></th>
 		<th></th>
 	</tr>';
 		while ($row = mysqli_fetch_array($Vid)) {
@@ -85,7 +87,8 @@ if (isset($_POST['search'])){
 			echo "<td>" . $row['Color'] . "</td>";
 			echo "<td>" . $row['Plate_Number'] . "</td>";
 			echo "<td>" . $row['First_Name'] . " " . $row['Last_Name']. "</td>";
-			echo "<td class='details'><a href='UpdateVehicleForm.php.php?id=$id'>Update</a></td>";
+			echo "<td class='details'><a href='UpdateVehicleForm.php.php?id=$id'><b>Update</b></a></td>";
+			echo "<td class='details'><a href='deleteFormVehicle.php?id=$id'><b style= 'color: #993333;'>Delete</b></a></td>";
 		echo "</tr>";}
 	echo '</table>'; }
 	elseif ($_POST['make']){
@@ -94,7 +97,8 @@ if (isset($_POST['search'])){
 					display: none;
 				} </style>";
 		$Make= $_POST['make'];
-		$mk= mysqli_query($conn, "SELECT Emp_Number, Vehicle_ID, First_Name, Last_Name, Make, Model, Year, Color, Plate_Number FROM employee join vehicle on Vehicle_ID=V_ID where Make like '%$Make%'");
+		$mk= mysqli_query($conn, "SELECT Emp_Number, Vehicle_ID, First_Name, Last_Name, Make, Model, Year, Color, Plate_Number 
+								FROM employee RIGHT JOIN vehicle on Vehicle_ID=V_ID where Make like '%$Make%'");
 		echo '<table>
 	<tr>
 		<th>Vehicle ID</th>
@@ -104,6 +108,7 @@ if (isset($_POST['search'])){
 		<th>Color</th>
 		<th>Plate Number</th>
 		<th>Assigned To</th>
+		<th></th>
 		<th></th>
 	</tr>';
 		while ($row = mysqli_fetch_array($mk)) {
@@ -116,7 +121,8 @@ if (isset($_POST['search'])){
 			echo "<td>" . $row['Color'] . "</td>";
 			echo "<td>" . $row['Plate_Number'] . "</td>";
 			echo "<td>" . $row['First_Name'] . " " . $row['Last_Name']. "</td>";
-			echo "<td class='details'><a href='UpdateVehicleForm.php.php?id=$id'>Update</a></td>";
+			echo "<td class='details'><a href='UpdateVehicleForm.php.php?id=$id'><b>Update</b></a></td>";
+			echo "<td class='details'><a href='deleteFormVehicle.php?id=$id'><b style= 'color: #993333;'>Delete</b></a></td>";
 		echo "</tr>";}
 	echo '</table>';} 
 	elseif ($_POST['model']){
@@ -125,7 +131,8 @@ if (isset($_POST['search'])){
 					display: none;
 				} </style>";
 		$Model= $_POST['model'];
-		$md= mysqli_query($conn, "SELECT Emp_Number, Vehicle_ID, First_Name, Last_Name, Make, Model, Year, Color, Plate_Number FROM employee join vehicle on Vehicle_ID=V_ID where Model like '%$Model%'");
+		$md= mysqli_query($conn, "SELECT Emp_Number, Vehicle_ID, First_Name, Last_Name, Make, Model, Year, Color, Plate_Number 
+								FROM employee RIGHT JOIN vehicle on Vehicle_ID=V_ID where Model like '%$Model%'");
 		echo '<table>
 	<tr>
 		<th>Vehicle ID</th>
@@ -135,6 +142,7 @@ if (isset($_POST['search'])){
 		<th>Color</th>
 		<th>Plate Number</th>
 		<th>Assigned To</th>
+		<th></th>
 		<th></th>
 	</tr>';
 		while ($row = mysqli_fetch_array($md)) {
@@ -147,7 +155,8 @@ if (isset($_POST['search'])){
 			echo "<td>" . $row['Color'] . "</td>";
 			echo "<td>" . $row['Plate_Number'] . "</td>";
 			echo "<td>" . $row['First_Name'] . " " . $row['Last_Name']. "</td>";
-			echo "<td class='details'><a href='UpdateVehicleForm.php?id=$id'>Update</a></td>";
+			echo "<td class='details'><a href='UpdateVehicleForm.php?id=$id'><b>Update</b></a></td>";
+			echo "<td class='details'><a href='deleteFormVehicle.php?id=$id'><b style= 'color: #993333;'>Delete</b></a></td>";
 		echo "</tr>";}
 	echo '</table>';} 
 	elseif ($_POST['y']){
@@ -156,7 +165,8 @@ if (isset($_POST['search'])){
 					display: none;
 				} </style>";
 		$Year= $_POST['y'];
-		$y= mysqli_query($conn, "SELECT Emp_Number, Vehicle_ID, First_Name, Last_Name, Make, Model, Year, Color, Plate_Number FROM employee join vehicle on Vehicle_ID=V_ID where Year like '%$Year%'");
+		$y= mysqli_query($conn, "SELECT Emp_Number, Vehicle_ID, First_Name, Last_Name, Make, Model, Year, Color, Plate_Number 
+								FROM employee RIGHT JOIN vehicle on Vehicle_ID=V_ID where Year like '%$Year%'");
 		echo '<table>
 	<tr>
 		<th>Vehicle ID</th>
@@ -166,6 +176,7 @@ if (isset($_POST['search'])){
 		<th>Color</th>
 		<th>Plate Number</th>
 		<th>Assigned To</th>
+		<th></th>
 		<th></th>
 	</tr>';
 			while ($row = mysqli_fetch_array($y)) {
@@ -178,7 +189,8 @@ if (isset($_POST['search'])){
 			echo "<td>" . $row['Color'] . "</td>";
 			echo "<td>" . $row['Plate_Number'] . "</td>";
 			echo "<td>" . $row['First_Name'] . " " . $row['Last_Name']. "</td>";
-			echo "<td class='details'><a href='UpdateVehicleForm.php?id=$id'>Update</a></td>";
+			echo "<td class='details'><a href='UpdateVehicleForm.php?id=$id'><b>Update</b></a></td>";
+			echo "<td class='details'><a href='deleteFormVehicle.php?id=$id'><b style= 'color: #993333;'>Delete</b></a></td>";
 			echo "</tr>";}
 			echo "</table>";}	
 	elseif ($_POST['eNo']){
@@ -187,7 +199,8 @@ if (isset($_POST['search'])){
 				display: none;
 			} </style>";
 		$Emp_Number= $_POST['eNo'];
-		$eNo= mysqli_query($conn, "SELECT Emp_Number, Vehicle_ID, First_Name, Last_Name, Make, Model, Year, Color, Plate_Number FROM employee join vehicle on Vehicle_ID=V_ID where Emp_Number=$Emp_Number");
+		$eNo= mysqli_query($conn, "SELECT Emp_Number, Vehicle_ID, First_Name, Last_Name, Make, Model, Year, Color, Plate_Number 
+								FROM employee LEFT JOIN vehicle on Vehicle_ID=V_ID where Emp_Number=$Emp_Number");
 		echo '<table>
 	<tr>
 		<th>Vehicle ID</th>
@@ -197,6 +210,7 @@ if (isset($_POST['search'])){
 		<th>Color</th>
 		<th>Plate Number</th>
 		<th>Assigned To</th>
+		<th></th>
 		<th></th>
 	</tr>';
 		while ($row = mysqli_fetch_array($eNo)) {
@@ -209,7 +223,8 @@ if (isset($_POST['search'])){
 			echo "<td>" . $row['Color'] . "</td>";
 			echo "<td>" . $row['Plate_Number'] . "</td>";
 			echo "<td>" . $row['First_Name'] . " " . $row['Last_Name']. "</td>";
-			echo "<td class='details'><a href='UpdateVehicleForm.php?id=$id'>Update</a></td>";
+			echo "<td class='details'><a href='UpdateVehicleForm.php?id=$id'><b>Update</b></a></td>";
+			echo "<td class='details'><a href='deleteFormVehicle.php?id=$id'><b style= 'color: #993333;'>Delete</b></a></td>";
 		echo "</tr>";}
 	echo '</table>';} 
 			}
@@ -242,8 +257,8 @@ if (isset($_POST['search'])){
 		echo "<td>" . $row['Year'] . "</td>";
 		echo "<td>" . $row['Color'] . "</td>";
 		echo "<td>" . $row['Plate_Number'] . "</td>";
-		echo "<td class='details'><a href='UpdateVehicleForm.php?id=$id'>Update</a></td>";
-		echo "<td class='details'><a href='deleteFormVehicle.php?id=$id'>Delete</a></td>";
+		echo "<td class='details'><a href='UpdateVehicleForm.php?id=$id'><b>Update</b></a></td>";
+		echo "<td class='details'><a href='deleteFormVehicle.php?id=$id'><b style= 'color: #993333;'>Delete</b></a></td>";
 		echo "</tr></div>";
 	}
 	echo '</table>'; ?>	
