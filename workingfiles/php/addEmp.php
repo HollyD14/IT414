@@ -11,18 +11,25 @@ $Sex=$_POST['sex'];
 $E_Addr=$_POST['eAddr'];
 $SSN=$_POST['ssn'];
 $Start_Date=$_POST['startDate'];
-$Salary=$_POST['salary'];
 
 
 
-$sql = "INSERT into employee (Emp_Number, First_Name, Last_Name, Birth_Date, Sex, Address, SSN, 
-													   Start_Date, Salary)
+$Emp = "INSERT into employee (Emp_Number, First_Name, Last_Name, Birth_Date, Sex, Address, SSN, 
+													   Start_Date)
 VALUES ('$E_ID', '$E_FName', '$E_LName', '$BDate', '$Sex', '$E_Addr', '$SSN', '
-				 $Start_Date', '$Salary')";
+				 $Start_Date')";
 
-if ($conn->query($sql) === TRUE) {
-   echo "Record inserted successfully";
+
+//Following block returns the user to the updated department page when successfull,
+//Or returns an error code with a shortcut to the deapartment page if not
+if ($conn->query($Emp) === TRUE) {
+   echo "Record updated successfully";
+      echo "Return to Update Page: " ;
+	  header ("Location: /php/employee.php");
 } else {
-   echo "Error inserting record: " . $conn->error;
+   echo "Error updating record: " . $conn->error;
+   echo <<<HTML
+			<a href="/php/employee.php">Return to Employee Page</a>
+HTML;
 }
 ?>
