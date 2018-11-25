@@ -6,14 +6,14 @@ $emp_number=$_POST['emp_number'];
 
 $sql = "DELETE from employee WHERE Emp_Number=$emp_number";
 
-	if ($conn->query($sql) === TRUE) {
-		echo "<br><center><h3>Record deleted successfully</h3></center>";
-		echo "<br><center><a href='employee.php'>Go back</a></center>";
-	} else {
-		echo "<br><center><h3>Error deleting record: " . $conn->error . "</h3></center>";
-		echo "<br><center><a href='employee.php'>Go back</a></center>";
-	}
-	
-
-
+//Following block returns the user to the updated employee page when successful,
+//Or returns an error code with a shortcut to the employee page if not
+if ($conn->query($sql) === TRUE) {
+	  header ("Location: /php/employee.php");
+} else {
+   echo "Error updating record: " . $conn->error;
+   echo <<<HTML
+			<a href="/php/employee.php">Return to Employee Page</a>
+HTML;
+}
 ?>
