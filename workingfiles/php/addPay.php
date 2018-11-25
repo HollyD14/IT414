@@ -3,18 +3,23 @@
 require 'open-db.php';
 
 /*Add payroll*/
-$Pay_ID=$_POST['pay_No'];
-$Emp_Name=$_POST['emp_Name'];
+$Pay_ID=$_POST['pNo'];
 $Salary=$_POST['salary'];
-$Garnish=$_POST['garnish'];
+$Garnish=$_POST['garnishment'];
 
-$sql = "INSERT into payroll (Payroll_ID, Employee_Name, Salary, Garnishment)
-VALUES ('$Pay_ID', '$Emp_Name', '$Salary','$Garnish')";
+$sql = "INSERT into payroll (Payroll_ID, Salary, Garnishments)
+VALUES ('$Pay_ID', '$Salary','$Garnish')";
 
+//Following block returns the user to the updated department page when successfull,
+//Or returns an error code with a shortcut to the deapartment page if not
 if ($conn->query($sql) === TRUE) {
-   echo "Record inserted successfully";
+   echo "Record updated successfully";
+      echo "Return to Update Page: " ;
+	  header ("Location: /php/payroll.php");
 } else {
-   echo "Error inserting record: " . $conn->error;
+   echo "Error updating record: " . $conn->error;
+   echo <<<HTML
+			<a href="/php/payroll.php">Return to Payroll Page</a>
+HTML;
 }
-
 ?>
