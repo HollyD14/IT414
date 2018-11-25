@@ -17,7 +17,7 @@
 		
 							<!--*****ADD POSITION***** -->
 	<button class="openButton" onclick="openForm()">+ Add Position</button>
-	<div class="formPopup" id="createEmp">
+	<div class="formPopup" id="createPos">
 		<form action="addPos.php" method="post" class="formContainer"> 
 			<h1>Add Position</h1>
 			<label for="Job ID"><b>Job ID</b></label>
@@ -31,9 +31,9 @@
 		</form>
 		<script>
 			function openForm(){
-			document.getElementById("createEmp").style.display="block";}
+			document.getElementById("createPos").style.display="block";}
 			function closeForm() {
-			document.getElementById("createEmp").style.display="none";}
+			document.getElementById("createPos").style.display="none";}
 		</script> 
 		</div>
 	<!--*****SEARCH POSITION*****-->
@@ -59,7 +59,9 @@ if (isset($_POST['search'])){
 					display: none;
 				} </style>";
 		$Emp_Number=$_POST['eNo'];
-		$Eid= mysqli_query($conn, "SELECT Emp_Number, Job_ID, First_Name, Last_Name, Job_Title, Dept_Name FROM ((employee inner join position on Job_ID=J_ID) inner join department on Dept_ID=D_ID) where Emp_Number=$Emp_Number");
+		$Eid= mysqli_query($conn, "SELECT Emp_Number, Job_ID, First_Name, Last_Name, Job_Title, Dept_Name 
+								FROM ((employee LEFT JOIN position on Job_ID=J_ID) 
+								LEFT JOIN department on Dept_ID=D_ID) where Emp_Number=$Emp_Number");
 		echo '<table>
 		<tr>
 			<th>Job ID</th>
@@ -83,7 +85,9 @@ if (isset($_POST['search'])){
 					display: none;
 				} </style>";
 		$First_Name= $_POST['fName'];
-		$fName= mysqli_query($conn, "SELECT Emp_Number, Job_ID, First_Name, Last_Name, Job_Title, Dept_Name FROM ((employee inner join position on Job_ID=J_ID) inner join department on Dept_ID=D_ID) where First_Name like '%$First_Name%'");
+		$fName= mysqli_query($conn, "SELECT Emp_Number, Job_ID, First_Name, Last_Name, Job_Title, Dept_Name 
+									FROM ((employee LEFT JOIN position on Job_ID=J_ID) 
+									LEFT JOIN department on Dept_ID=D_ID) where First_Name like '%$First_Name%'");
 		echo '<table>
 		<tr>
 			<th>Job ID</th>
@@ -107,7 +111,9 @@ if (isset($_POST['search'])){
 				display: none;
 			} </style>";
 		$Last_Name= $_POST['lName'];
-		$lName= mysqli_query($conn, "SELECT Emp_Number, Job_ID, First_Name, Last_Name, Job_Title, Dept_Name FROM ((employee inner join position on Job_ID=J_ID) inner join department on Dept_ID=D_ID) where Last_Name like '%$Last_Name%'");
+		$lName= mysqli_query($conn, "SELECT Emp_Number, Job_ID, First_Name, Last_Name, Job_Title, Dept_Name 
+									FROM ((employee LEFT JOIN position on Job_ID=J_ID) 
+									LEFT JOIN department on Dept_ID=D_ID) where Last_Name like '%$Last_Name%'");
 		echo '<table>
 		<tr>
 			<th>Job ID</th>
@@ -131,7 +137,9 @@ if (isset($_POST['search'])){
 				display: none;
 			} </style>";
 		$Job_ID= $_POST['Pid'];
-		$Pid= mysqli_query($conn, "SELECT Emp_Number, Job_ID, First_Name, Last_Name, Job_Title, Dept_Name FROM ((employee inner join position on Job_ID=J_ID) inner join department on Dept_ID=D_ID) where Job_ID=$Job_ID");
+		$Pid= mysqli_query($conn, "SELECT Emp_Number, Job_ID, First_Name, Last_Name, Job_Title, Dept_Name 
+								FROM ((employee RIGHT JOIN position on Job_ID=J_ID) 
+								LEFT JOIN department on Dept_ID=D_ID) where Job_ID=$Job_ID");
 		echo '<table>
 		<tr>
 			<th>Job ID</th>
@@ -155,7 +163,9 @@ if (isset($_POST['search'])){
 					display: none;
 				} </style>";
 		$Job_Title= $_POST['title'];
-		$title= mysqli_query($conn, "SELECT Emp_Number, Job_ID, First_Name, Last_Name, Job_Title, Dept_Name FROM ((employee inner join position on Job_ID=J_ID) inner join department on Dept_ID=D_ID) where Job_Title like '%$Job_Title%'");
+		$title= mysqli_query($conn, "SELECT Emp_Number, Job_ID, First_Name, Last_Name, Job_Title, Dept_Name 
+									FROM ((employee RIGHT JOIN position on Job_ID=J_ID) 
+									LEFT JOIN department on Dept_ID=D_ID) where Job_Title like '%$Job_Title%'");
 		echo '<table>
 		<tr>
 			<th>Job ID</th>
@@ -198,8 +208,8 @@ if (isset($_POST['search'])){
 		echo "<td>" . $row['Job_ID'] . "</td>";
 		echo "<td>" . $row['Job_Title'] . "</td>";
 		echo "<td>" . '$'. $row['Base_Salary'] . "</td>";	
-		echo "<td class='details'><a href='UpdatePositionForm.php?id=$id'>Update</a></td>";
-		echo "<td class='details'><a href='deleteFormPos.php?id=$id'>Delete</a></td>";
+		echo "<td class='details'><a href='UpdatePositionForm.php?id=$id'><b>Update</b></a></td>";
+		echo "<td class='details'><a href='deleteFormPos.php?id=$id'><b style= 'color: #993333;'>Delete</b></a></td>";
 		echo "</tr></div>";
 	}
 	echo '</table>'; ?>	
