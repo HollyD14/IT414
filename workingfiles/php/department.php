@@ -73,8 +73,8 @@ if (isset($_POST['search'])){
 				echo "<td>" . $row['Dept_Name'] . "</td>";
 				echo "<td>" . $row['Office_Addr'] . "</td>";
 				echo "<td>" . $row['Office_Phone'] . "</td>";
-				echo "<td class='details'><a href='UpdateDepartmentForm.php?id=$id'>Update</a></td>";
-				echo "<td class='details'><a href='deleteFormDept.php?id=$id'>Delete</a></td>";
+				echo "<td class='details'><a href='UpdateDepartmentForm.php?id=$id'><b>Update</b></a></td>";
+				echo "<td class='details'><a href='deleteFormDept.php?id=$id'><b style= 'color: #993333;'>Delete</b></a></td>";
 				echo "</tr>";}
 		echo '</table>';}
 	elseif ($_POST['dName']){
@@ -100,8 +100,8 @@ if (isset($_POST['search'])){
 				echo "<td>" . $row['Dept_Name'] . "</td>";
 				echo "<td>" . $row['Office_Addr'] . "</td>";
 				echo "<td>" . $row['Office_Phone'] . "</td>";
-				echo "<td class='details'><a href='UpdateDepartmentForm.php?id=$id'>Update</a></td>";
-				echo "<td class='details'><a href='deleteFormDept.php?id=$id'>Delete</a></td>";
+				echo "<td class='details'><a href='UpdateDepartmentForm.php?id=$id'><b>Update</b></a></td>";
+				echo "<td class='details'><a href='deleteFormDept.php?id=$id'><b style= 'color: #993333;'>Delete</b></a></td>";
 				echo "</tr>";}
 		echo '</table>';}
 	elseif ($_POST['dAddr']){
@@ -127,8 +127,8 @@ if (isset($_POST['search'])){
 				echo "<td>" . $row['Dept_Name'] . "</td>";
 				echo "<td>" . $row['Office_Addr'] . "</td>";
 				echo "<td>" . $row['Office_Phone'] . "</td>";
-				echo "<td class='details'><a href='UpdateDepartmentForm.php?id=$id'>Update</a></td>";
-				echo "<td class='details'><a href='deleteFormDept.php?id=$id'>Delete</a></td>";
+				echo "<td class='details'><a href='UpdateDepartmentForm.php?id=$id'><b>Update</b></a></td>";
+				echo "<td class='details'><a href='deleteFormDept.php?id=$id'><b style= 'color: #993333;'>Delete</b></a></td>";
 				echo "</tr>";}
 		echo '</table>';}
 	elseif ($_POST['dPhone']){
@@ -152,8 +152,8 @@ if (isset($_POST['search'])){
 				echo "<td>" . $row['Dept_Name'] . "</td>";
 				echo "<td>" . $row['Office_Addr'] . "</td>";
 				echo "<td>" . $row['Office_Phone'] . "</td>";
-				echo "<td class='details'><a href='UpdateDepartmentForm.php?id=$id'>Update</a></td>";
-				echo "<td class='details'><a href='deleteFormDept.php?id=$id'>Delete</a></td>";
+				echo "<td class='details'><a href='UpdateDepartmentForm.php?id=$id'><b>Update</b></a></td>";
+				echo "<td class='details'><a href='deleteFormDept.php?id=$id'><b style= 'color: #993333;'>Delete</b></a></td>";
 				echo "</tr>";}	
 		echo '</table>';}
 }	
@@ -161,10 +161,8 @@ if (isset($_POST['search'])){
 
 	<!--Display all department info by default on main department page-->
 <?php 	
-	echo '<link rel="stylesheet" type = "text/css" href="../css/results.css">';
-	echo '<link rel="stylesheet" type = "text/css" href="../css/searchStyle.css">';
-	echo '<link rel="stylesheet" type = "text/css" href="../css/style.css">';
 	require 'open-db.php';
+	echo "<link href='../css/popupFormStyle.css' rel='stylesheet' type='text/css'/>";
 	$result= mysqli_query($conn, "SELECT Dept_ID, Dept_Name, Office_Addr, Office_Phone FROM department");
 	echo '<div class = "formDefault"><table>
 	<tr>
@@ -182,10 +180,11 @@ if (isset($_POST['search'])){
 		echo "<td>" . $row['Dept_Name'] . "</td>";
 		echo "<td>" . $row['Office_Addr'] . "</td>";
 		echo "<td>" . $row['Office_Phone'] . "</td>";
-		echo "<td class='details'><a href='UpdateDepartmentForm.php?id=$id'>Update</a></td>";
-		echo "<td class='details'><a href='deleteFormDept.php?id=$id'>Delete</a></td>";
+		echo "<td class='update'><a href='UpdateDepartmentForm.php?id=$id'><b>Update</b></a></td>";
+		echo "<td class='delete'><a href='deleteFormDept.php?id=$id'><b style= 'color: #993333;'>Delete</b></a></td>";
 		echo "</tr>";}
-	echo '</table></div>'; ?>	
+	echo '</table></div>'; 
+			?>	
 	
 		</div>
 	</body>
