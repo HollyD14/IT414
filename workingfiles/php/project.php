@@ -19,13 +19,13 @@
 	<div class="formPopup" id="createProj">
 		<form action="addProj.php" method="post" class="formContainer"> 
 			<h1>Add Project</h1>
-			<label for="Project ID"><b>Project No.</b></label>
+			<label for="Project ID">Project Number:</label>
 			<input type="number" placeholder="Enter Project #" name="pNo" required><br>
-			<label for="Project Name"><b>Project Name</b></label>
+			<label for="Project Name">Project Name:</label>
 			<input type="text" placeholder="Enter Project Name" name="pName" required><br>
-			<label for="Start Date"><b>Start Date</b></label> 
+			<label for="Start Date">Start Date:</label> 
 			<input type="text" placeholder="Enter Start Date" name="sDate" required><br>
-			<label for="End Date"><b>End Date</b></label> 
+			<label for="End Date">End Date:</label> 
 			<input type="text" placeholder="Enter End Date" name="eDate"><br>
 		<center><button type="submit" class="btn save">Save</button>
 		<button type="button" class="btn cancel" onclick="closeForm()">Cancel</button></center>
