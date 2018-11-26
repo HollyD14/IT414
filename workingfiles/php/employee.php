@@ -23,15 +23,15 @@
 			<input type="text" placeholder="Enter First Name" name="eFName" required><br>
 			<label for="Last Name">Last Name:</label> 
 			<input type="text" placeholder="Enter Last Name" name="eLName" required><br>
-			<label for="Office Address">Date of Birth:</label> 
+			<label for="Date of Birth">Date of Birth: <i>(YYYY-MM-DD)</i></label> 
 			<input type="text" placeholder="Enter birth date" name="bdate"><br>
-			<label for="Office Address">Sex:</label> 
+			<label for="Sex">Sex:<i>(M/F)</i></label> 
 			<input type="text" placeholder="Enter sex" name="sex"><br>
 			<label for="Office Address">Address:</label> 
 			<input type="text" placeholder="Enter Home Address" name="eAddr"><br>
-			<label for="Office Address">SSN:</label> 
+			<label for="SSN">SSN: <i>(no dashes)</i></label> 
 			<input type="text" placeholder="Enter SSN" name="ssn"><br>
-			<label for="Emp Phone Number">Start Date:</label>
+			<label for="Start Date">Start Date:</label>
 			<input type="text" placeholder="Enter Start Date" name="startDate"><br>
 		<center><button type="submit" class="btn save">Save</button>
 		<button type="button" class="btn cancel" onclick="closeForm()">Cancel</button></center>
