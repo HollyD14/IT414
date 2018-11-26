@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Delete Record</title>
-	<link href="../css/updateFormStyle.css" rel="stylesheet" type="text/css"/>
+	<link href="../css/deleteFormStyle.css" rel="stylesheet" type="text/css"/>
 	<link href="../css/pageStyle.css" rel="stylesheet" type="text/css"/>
 
 </head>
