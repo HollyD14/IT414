@@ -19,11 +19,11 @@
 	<div class="formPopup" id="createPay">
 		<form action="addPay.php" method="post" class="formContainer"> 
 			<h1>Add Payroll</h1>
-			<label for="Payroll ID"><b>Payroll ID</b></label>
+			<label for="Payroll ID">Payroll ID:</label>
 			<input type="number" placeholder="Enter Payroll #" name="pNo" required><br>
-			<label for="Salary"><b>Salary</b></label> 
+			<label for="Salary">Salary <i>(with or without commas)</i>:</label> 
 			<input type="text" placeholder="Enter Salary" name="salary" required><br>
-			<label for="Garnishment"><b>Garnishment</b></label> 
+			<label for="Garnishment">Garnishments <i>(with or without commas)</i>:</label> 
 			<input type="text" placeholder=" Enter Wage Garnishment" name="garnishment"><br>
 		<center><button type="submit" class="btn save">Save</button>
 		<button type="button" class="btn cancel" onclick="closeForm()">Cancel</button></center>
@@ -34,7 +34,7 @@
 			function closeForm() {
 			document.getElementById("createPay").style.display="none";}
 		</script> 
-		</div>		
+		</div>	
 	<!--*****SEARCH PAYROLL*****-->
 <!--form-->
 	<div id="search">
