@@ -1,14 +1,17 @@
-<?php
-date_default_timezone_set("America/Chicago");
-echo '<body>
+<!DOCTYPE html>
+<html>
+<body>
 		<div id="container">
 		<header>
 			<div id="logo"><img src="../images/telmon_logo_v1.png" alt="Telmon"></div> 
-			<h1>Howdy,user</h1>';
-			echo "<h2>" . date("m-d-y") . "</h2>";
-			echo "<h2>" . date("h:s a") . "</h2>";
-			echo '</header>';
-echo '<nav>
+			<h1>Howdy,user</h1>
+			 <h3 id="date"></h3>
+				<script>
+					var d = new Date();
+					document.getElementById("date").innerHTML = d;
+				</script>
+		</header>
+	<nav>
 		<ul> 
 			<li><a href="/php/department.php">Department</a></li>
 			<li><a href="/php/employee.php">Employees</a></li>
@@ -19,11 +22,11 @@ echo '<nav>
 		</ul>
 	</nav>
 	</div>
-	</body>';
+	</body>
 
-echo '<footer>
+<footer>
 		<p>&copy; 2018 Telmon ERIS</p>
-	</footer>';
+	</footer>
 
 
-?>
+</html>
