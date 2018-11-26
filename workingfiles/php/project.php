@@ -23,9 +23,9 @@
 			<input type="number" placeholder="Enter Project #" name="pNo" required><br>
 			<label for="Project Name">Project Name:</label>
 			<input type="text" placeholder="Enter Project Name" name="pName" required><br>
-			<label for="Start Date">Start Date:</label> 
+			<label for="Start Date">Start Date: <i>(YYYY-MM-DD)</i></label> 
 			<input type="text" placeholder="Enter Start Date" name="sDate" required><br>
-			<label for="End Date">End Date:</label> 
+			<label for="End Date">End Date:<i>(YYYY-MM-DD)</i></label> 
 			<input type="text" placeholder="Enter End Date" name="eDate"><br>
 		<center><button type="submit" class="btn save">Save</button>
 		<button type="button" class="btn cancel" onclick="closeForm()">Cancel</button></center>
