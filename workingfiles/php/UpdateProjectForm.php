@@ -23,7 +23,7 @@ while ($row = mysqli_fetch_array($result)) {
 ?>
 	<center><div class="formContainer" id="updateProject"> 
     <form action="updateProject.php" method="post">
-        <h2>Update Position</h2>
+        <h2>Update Project</h2>
         <center><div>
           <label for="number">Project Number: <input type="text" id="Project_ID" name="Project_ID" value="<?php echo htmlspecialchars($p); ?>" readonly="readonly"></label>
         </div>
