@@ -14,22 +14,22 @@
 		<header>
 			<?php include 'headerFooter.php'?>
 		</header>
-										<!--*****ADD VEHICLE***** -->
+	<!--*****ADD VEHICLE***** -->
 	<button class="openButton" onclick="openForm()">+ Add Vehicle</button>
 	<div class="formPopup" id="createEmp">
 		<form action="addVehicle.php" method="post" class="formContainer"> 
 			<h1>Add Vehicle</h1>
-			<label for="Vehicle No."><b>Vehicle No.</b></label>
+			<label for="Vehicle No.">Vehicle Number:</label>
 			<input type="number" placeholder="Enter Vehicle #" name="vNo" required><br>
-			<label for="Vehicle Make"><b>Make</b></label>
+			<label for="Vehicle Make">Make:</label>
 			<input type="text" placeholder="Enter make" name="make" required><br>
-			<label for="Vehicle Model"><b>Model</b></label> 
+			<label for="Vehicle Model">Model:</label> 
 			<input type="text" placeholder="Enter model" name="model" required><br>
-		    <label for="Year"><b>Year</b></label> 
+		    <label for="Year">Year: <i>(YYYY)</i></label> 
 			<input type="number" placeholder="Enter year" name="year"><br>
-			<label for="Color"><b>Color</b></label> 
+			<label for="Color">Color:</label> 
 			<input type="text" placeholder="Enter color" name="color"><br>
-			<label for="Plate Number"><b>Plate #</b></label> 
+			<label for="Plate Number">Plate Number: <i>(XXX XXX)</i></label> 
 			<input type="text" placeholder="Enter License Plate" name="pNumber"><br> 
 		<center><button type="submit" class="btn save">Save</button>
 		<button type="button" class="btn cancel" onclick="closeForm()">Cancel</button></center>
