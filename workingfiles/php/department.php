@@ -16,14 +16,22 @@
 	<div class="formPopup" id="createDept"> 
 		<form action="addDept.php" method="post" class="formContainer">
 			<h1>Add Department</h1>
-			<label for="Department No."><b>Department No.</b></label>
+			<div>
+			<label for="Department No.">Department Number:</label>
 			<input type="number" placeholder="Enter Department #" name="deptNo" required><br>
-			<label for="Department Name"><b>Department Name</b></label>
+			</div>
+			<div>
+			<label for="Department Name">Department Name: </label>
 			<input type="text" placeholder="Enter Department Name" name="deptName" required><br>
-			<label for="Office Address"><b>Office Address</b></label>
+			</div>
+			<div>
+			<label for="Office Address">Office Address:</label>
 			<input type="text" placeholder="Enter Office Address" name="deptAddr"><br>
-			<label for="Phone Number"><b>Phone Number</b></label>
+			</div>
+			<div>
+			<label for="Phone Number">Phone Number:</label>
 			<input type="number" placeholder="Enter Office Phone" name="deptPhone"><br>	
+			</div>
 		<center><button type="submit" class="btn save">Save</button>
 		<button type="button" class="btn cancel" onclick="closeForm()">Cancel</button></center>
 		</form>
