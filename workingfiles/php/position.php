@@ -20,11 +20,11 @@
 	<div class="formPopup" id="createPos">
 		<form action="addPos.php" method="post" class="formContainer"> 
 			<h1>Add Position</h1>
-			<label for="Job ID"><b>Job ID</b></label>
+			<label for="Job ID">Job ID:</label>
 			<input type="number" placeholder="Enter Job ID" name="jNo" required><br>
-			<label for="Job Title"><b>Job Title</b></label>
+			<label for="Job Title">Job Title:</label>
 			<input type="text" placeholder="Enter Job Title" name="jTitle" required><br>
-			<label for="Base Salary"><b>Base Salary</b></label> 
+			<label for="Base Salary">Base Salary: <i>(with or without commas)</i></label> 
 			<input type="number" placeholder="Enter Base Salary" name="base" required><br>
 		<center><button type="submit" class="btn save">Save</button>
 		<button type="button" class="btn cancel" onclick="closeForm()">Cancel</button></center>
