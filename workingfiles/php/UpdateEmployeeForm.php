@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <title>Update Employee</title>
 	<link href='../css/updateFormStyle.css' rel='stylesheet' type='text/css'/>
-	<link href='../css/dropdown.css' rel='stylesheet' type='text/css'/>
 	<link href="../css/pageStyle.css" rel="stylesheet" type="text/css"/>
    
      
@@ -39,83 +38,97 @@ while ($row = mysqli_fetch_array($result)) {
     <form action="updateEmployee.php" method="post">
 	<h2>Update Employee</h2>
         <center><div>
-          <label for="number">Employee Number:</label> <input type="text" id="Emp_Number" name="Emp_Number" value="<?php echo htmlspecialchars($e); ?>" readonly="readonly">
+          <label for="number">Employee Number: <input type="text" id="Emp_Number" name="Emp_Number" value="<?php echo htmlspecialchars($e); ?>" readonly="readonly"></label>
         </div>
+		
         <div>
-          <label for="fname">First Name:</label> <input type="text" id="First_Name" name="First_Name" value="<?php echo htmlspecialchars($f); ?>" required>
+          <label for="fname">First Name: <input type="text" id="First_Name" name="First_Name" value="<?php echo htmlspecialchars($f); ?>" required></label>
         </div>
+		
         <div>
-          <label for="lname">Last Name:</label> <input type="text" id="Last_Name" name="Last_Name" value="<?php echo htmlspecialchars($l); ?>" required>
+          <label for="lname">Last Name: <input type="text" id="Last_Name" name="Last_Name" value="<?php echo htmlspecialchars($l); ?>" required></label>
         </div>
+		
 		<div>
-          <label for="address">Address:</label> <input type="text" id="Address" name="Address" value="<?php echo htmlspecialchars($a); ?>">
+          <label for="address">Address: <input type="text" id="Address" name="Address" value="<?php echo htmlspecialchars($a); ?>" required></label>
         </div>
+		
         <div>
-		  <label for="birth">Birthdate: <i>(YYYY-MM-DD)</i></label> <input type="text" id="Birth_Date" name="Birth_Date" value="<?php echo htmlspecialchars($b); ?>">
+		  <label for="birth">Birthdate: <i>(YYYY-MM-DD)</i> <input type="text" id="Birth_Date" name="Birth_Date" value="<?php echo htmlspecialchars($b); ?>"></label>
         </div>
+		
  		<div>
-          <label for="sex">Sex: <i>(M/F)</i></label> <input type="text" id="Sex" name="Sex" value="<?php echo htmlspecialchars($s); ?>">
+          <label for="sex">Sex: <i>(M/F)</i> <input type="text" id="Sex" name="Sex" value="<?php echo htmlspecialchars($s); ?>"></label>
         </div>
+		
         <div>
-		  <label for="SSN">SSN: <i>(no dashes)</i></label> <input type="text" id="SSN" name="SSN" value="<?php echo htmlspecialchars($n); ?>">
+		  <label for="SSN">SSN: <i>(no dashes)</i> <input type="text" id="SSN" name="SSN" value="<?php echo htmlspecialchars($n); ?>"></label>
         </div>
+		
 		<div>
-          <label for="Start_Date">Start Date: <i>(YYYY-MM-DD)</i></label> <input type="text" id="Start_Date" name="Start_Date" value="<?php echo htmlspecialchars($sd); ?>">
+          <label for="Start_Date">Start Date: <i>(YYYY-MM-DD)</i> <input type="text" id="Start_Date" name="Start_Date" value="<?php echo htmlspecialchars($sd); ?>"></label>
         </div>
-
-		  <label for="J_ID">Job ID #:</label> <input type="text" id="J_ID" name="J_ID" value="<?php echo htmlspecialchars($j); ?>">
-		<div class="dropdown">		 
-		 <p class="dropbtn"><i>(Positions)</i></p>
+		
+		<div>
+		  <label for="J_ID">Job ID #: <input type="text" id="J_ID" name="J_ID" value="<?php echo htmlspecialchars($j); ?>">		 
+		  <div class="dropdown">
+		  <p class="dropbtn"><i>(Positions)</i></p></label>
 		  <div class="dropContent">
 		  <?php $sql= mysqli_query($conn, "SELECT Job_ID, Job_Title FROM position"); 
 		  while ($row = mysqli_fetch_array($sql)) {
 			echo $row['Job_ID'] . " - " . $row['Job_Title'] . "<br>"; }?>
-        </div>
+			</div>
+			</div>
 		</div>
-        <div>
-		  <label for="D_ID">Department ID #:</label> <input type="text" id="D_ID" name="D_ID" value="<?php echo htmlspecialchars($d); ?>">
-		  <div class="dropdown">		 
-		 <p class="dropbtn"><i>(Departments)</i></p>
+		
+		<div>
+		  <label for="D_ID">Department ID #: <input type="text" id="D_ID" name="D_ID" value="<?php echo htmlspecialchars($d); ?>">		 
+		  <div class="dropdown">
+		  <p class="dropbtn"><i>(Departments)</i></p> </label>
 		  <div class="dropContent">
 		  <?php $sql= mysqli_query($conn, "SELECT Dept_ID, Dept_Name FROM department"); 
 		  while ($row = mysqli_fetch_array($sql)) {
 			echo $row['Dept_ID'] . " - " . $row['Dept_Name'] . "<br>"; }?>
-        </div>
+			</div>
+			</div>
 		</div>
-        </div>
-        <div>
-		  <label for="V_ID">Vehicle ID #:</label> <input type="text" id="V_ID" name="V_ID" value="<?php echo htmlspecialchars($v); ?>">
-		  <div class="dropdown">
-		  <p class="dropbtn"><i>(Vehicles)</i></p>
-		  <div class="dropContent">
+		
+		<div>
+		  <label for="V_ID">Vehicle ID #: <input type="text" id="V_ID" name="V_ID" value="<?php echo htmlspecialchars($v); ?>">
+		<div class="dropdown">
+		<p class="dropbtn"><i>(Vehicles)</i></p></label>
+		<div class="dropContent">
 		  <?php $sql= mysqli_query($conn, "SELECT Vehicle_ID, Plate_Number FROM vehicle"); 
 		  while ($row = mysqli_fetch_array($sql)) {
 			echo $row['Vehicle_ID'] . " - " . $row['Plate_Number'] . "<br>"; }?>
-        </div>
+			</div>
+			</div>
 		</div>
-        </div>
+		
 		<div>
-		  <label for="P_ID">Payroll ID #:</label> <input type="text" id="P_ID" name="P_ID" value="<?php echo htmlspecialchars($p); ?>">
+		  <label for="P_ID">Payroll ID #: <input type="text" id="P_ID" name="P_ID" value="<?php echo htmlspecialchars($p); ?>">
 		  <div class="dropdown">
-		  <p class="dropbtn"><i>(Payroll)</i></p>
+		  <p class="dropbtn"><i>(Payroll)</i></p></label>
 		  <div class="dropContent">
 		  <?php $sql= mysqli_query($conn, "SELECT Payroll_ID, Salary FROM payroll"); 
 		  while ($row = mysqli_fetch_array($sql)) {
 			echo $row['Payroll_ID'] . " - " . $row['Salary'] . "<br>"; }?>
+			</div>
+			</div>
         </div>
-		</div>
-        </div>
-        <div>
-		  <label for="Proj_ID">Project ID #:</label> <input type="text" id="Proj_ID" name="Proj_ID" value="<?php echo htmlspecialchars($pr); ?>">
+		
+		<div>
+		  <label for="Proj_ID">Project ID #: <input type="text" id="Proj_ID" name="Proj_ID" value="<?php echo htmlspecialchars($pr); ?>">
 		  <div class="dropdown">
-		  <p class="dropbtn"><i>(Projects)</i></p>
+		  <p class="dropbtn"><i>(Projects)</i></p></label>
 		  <div class="dropContent">
 		  <?php $sql= mysqli_query($conn, "SELECT Project_ID, Project_Name FROM project"); 
 		  while ($row = mysqli_fetch_array($sql)) {
 			echo $row['Project_ID'] . " - " . $row['Project_Name'] . "<br>"; }?>
-        </div>
+			</div>
+			</div>
 		</div>
-        </div>
+		
         <div class="btn">
           <button class="save" type="submit">Update</button>
 		  </div></center>
