@@ -17,21 +17,21 @@
 	<div class="formPopup" id="createEmp">
 		<form action="addEmp.php" method="post" class="formContainer"> 
 			<h1>Add Employee</h1>
-			<label for="Employee No."><b>Employee No.</b></label>
+			<label for="Employee No.">Employee Number:</label>
 			<input type="number" placeholder="Enter Employee #" name="eNo" required><br>
-			<label for="First Name"><b>First Name</b></label>
+			<label for="First Name">First Name:</label>
 			<input type="text" placeholder="Enter First Name" name="eFName" required><br>
-			<label for="Last Name"><b>Last Name</b></label> 
+			<label for="Last Name">Last Name:</label> 
 			<input type="text" placeholder="Enter Last Name" name="eLName" required><br>
-			<label for="Office Address"><b>Date of Birth</b></label> 
+			<label for="Office Address">Date of Birth:</label> 
 			<input type="text" placeholder="Enter birth date" name="bdate"><br>
-			<label for="Office Address"><b>Sex</b></label> 
+			<label for="Office Address">Sex:</label> 
 			<input type="text" placeholder="Enter sex" name="sex"><br>
-			<label for="Office Address"><b>Address</b></label> 
+			<label for="Office Address">Address:</label> 
 			<input type="text" placeholder="Enter Home Address" name="eAddr"><br>
-			<label for="Office Address"><b>SSN</b></label> 
+			<label for="Office Address">SSN:</label> 
 			<input type="text" placeholder="Enter SSN" name="ssn"><br>
-			<label for="Emp Phone Number"><b>Start Date</b></label>
+			<label for="Emp Phone Number">Start Date:</label>
 			<input type="text" placeholder="Enter Start Date" name="startDate"><br>
 		<center><button type="submit" class="btn save">Save</button>
 		<button type="button" class="btn cancel" onclick="closeForm()">Cancel</button></center>
