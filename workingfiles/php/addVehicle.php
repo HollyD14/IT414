@@ -12,7 +12,10 @@ $Plate_Num=$_POST['pNumber'];
 
 
 $sql = "INSERT into vehicle (Vehicle_ID, Make, Model, Year, Color, Plate_Number)
-VALUES ('$Vehicle_ID', '$Make', '$Model','$Year', '$Color', '$Plate_Num')";
+VALUES ('$Vehicle_ID', '$Make', ".(($Model=='')?"NULL":("'".$Model."'"))."
+		,".(($Year =='')?"NULL":("'".$Year."'")).",".(($Color =='')?"NULL":("'".$Color."'")).",
+		".(($Plate_Num =='')?"NULL":("'".$Plate_Num."'"))."
+	   )";
 
 //Following block returns the user to the updated department page when successfull,
 //Or returns an error code with a shortcut to the deapartment page if not

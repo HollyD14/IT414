@@ -9,7 +9,9 @@ $Start_Date=$_POST['sDate'];
 $End_Date=$_POST['eDate'];
 
 $sql = "INSERT into project (Project_ID, Project_Name, Start_Date, End_Date)
-VALUES ('$Proj_ID', '$Proj_Name', '$Start_Date','$End_Date')";
+VALUES ('$Pay_ID',  ".(($Proj_Name=='')? "NULL" :("'".$Proj_Name."'")).",
+				".(($Start_Date=='')?"NULL":("'".$Start_Date."'")).",".(($End_Date=='')? "NULL" :("'".$End_Date."'")).",
+	   		   )";
 
 //Following block returns the user to the updated project page when successful,
 //Or returns an error code with a shortcut to the project page if not

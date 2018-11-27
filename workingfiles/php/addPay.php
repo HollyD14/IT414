@@ -8,8 +8,9 @@ $Salary=$_POST['salary'];
 $Garnish=$_POST['garnishment'];
 
 $sql = "INSERT into payroll (Payroll_ID, Salary, Garnishments)
-VALUES ('$Pay_ID', '$Salary','$Garnish')";
-
+VALUES ('$Pay_ID',  ".(($Salary=='')? "NULL" :("'".$Salary."'")).",
+				".(($Garnish=='')?"NULL":("'".$Garnish."'"))."
+	   		   )";
 //Following block returns the user to the updated department page when successfull,
 //Or returns an error code with a shortcut to the deapartment page if not
 if ($conn->query($sql) === TRUE) {

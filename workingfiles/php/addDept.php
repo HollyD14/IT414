@@ -9,7 +9,9 @@ $Dept_Addr=$_POST['deptAddr'];
 $Dept_Phone=$_POST['deptPhone'];
 
 $sql = "INSERT into department (Dept_ID, Dept_Name, Office_Addr, Office_Phone)
-VALUES ('$Dept_ID', '$Dept_Name', '$Dept_Addr','$Dept_Phone')";
+VALUES ('$Dept_ID', '$Dept_Name', ".(($Dept_Addr=='')?"NULL":("'".$Dept_Addr."'"))."
+		".(($Dept_Phone =='')?"NULL":("'".$Dept_Phone."'"))."
+	   )";
 
 //Following block returns the user to the updated department page when successfull,
 //Or returns an error code with a shortcut to the deapartment page if not

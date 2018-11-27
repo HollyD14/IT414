@@ -9,7 +9,9 @@ $B_Sal=$_POST['base'];
 
 
 $sql = "INSERT into position (Job_ID, Job_Title, Base_Salary)
-VALUES ('$Job_ID', '$Job_Title', '$B_Sal')";
+VALUES ('$Job_ID',  ".(($Job_Title=='')? "NULL" :("'".$Job_Title."'")).",
+				".(($B_Sal=='')?"NULL":("'".$B_Sal."'"))."
+	   		   )";
 
 //Following block returns the user to the updated position page when successful,
 //Or returns an error code with a shortcut to the position page if not
