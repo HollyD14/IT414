@@ -56,9 +56,16 @@ while ($row = mysqli_fetch_array($result)) {
         <div>
 		  <label for="birth">Birthdate: <i>(YYYY-MM-DD)</i> <input type="text" id="Birth_Date" name="Birth_Date" value="<?php echo htmlspecialchars($b); ?>"></label>
         </div>
-		
- 		<div>
-          <label for="sex">Sex: <i>(M/F)</i> <input type="text" id="Sex" name="Sex" value="<?php echo htmlspecialchars($s); ?>"></label>
+
+		<div>		
+		  <label for="Sex">Sex: 	  
+		  <select id="Sex" name="Sex">
+		    <option selected="selected"><?php echo htmlspecialchars($s); ?></option>
+			<option value="M">M</option>
+			<option value="F">F</option>
+		  </select>
+
+          </label>
         </div>
 		
         <div>
@@ -70,16 +77,14 @@ while ($row = mysqli_fetch_array($result)) {
         </div>
 		
 		<div>
-		  <label for="J_ID">Job ID #: <input type="text" id="J_ID" name="J_ID" value="<?php echo htmlspecialchars($j); ?>">		 
-		  <div class="dropdown">
-		  <p class="dropbtn"><i>(Positions)</i></p></label>
-		  <div class="dropContent">
+		  <label for="J_ID">Position:	 
+		  <select id="J_ID" name="J_ID">
+		  <option selected="selected"><?php echo htmlspecialchars($j); ?></option>
 		  <?php $sql= mysqli_query($conn, "SELECT Job_ID, Job_Title FROM position"); 
 		  while ($row = mysqli_fetch_array($sql)) {
-			echo $row['Job_ID'] . " - " . $row['Job_Title'] . "<br>"; }?>
-			</div>
-			</div>
-		</div>
+			echo '<option value="'.$row['Job_ID'] . '">' .$row['Job_Title'].'</option>'; }?>
+		  </select>
+		</div>	
 		
 		<div>
 		  <label for="D_ID">Department ID #: <input type="text" id="D_ID" name="D_ID" value="<?php echo htmlspecialchars($d); ?>">		 
