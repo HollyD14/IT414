@@ -50,7 +50,7 @@ while ($row = mysqli_fetch_array($result)) {
         </div>
 		
 		<div>
-          <label for="address">Address: <input type="text" id="Address" name="Address" value="<?php echo htmlspecialchars($a); ?>" required></label>
+          <label for="address">Address: <input type="text" id="Address" name="Address" value="<?php echo htmlspecialchars($a); ?>"></label>
         </div>
 		
         <div>
@@ -64,7 +64,6 @@ while ($row = mysqli_fetch_array($result)) {
 			<option value="M">M</option>
 			<option value="F">F</option>
 		  </select>
-
           </label>
         </div>
 		
@@ -87,51 +86,42 @@ while ($row = mysqli_fetch_array($result)) {
 		</div>	
 		
 		<div>
-		  <label for="D_ID">Department ID #: <input type="text" id="D_ID" name="D_ID" value="<?php echo htmlspecialchars($d); ?>">		 
-		  <div class="dropdown">
-		  <p class="dropbtn"><i>(Departments)</i></p> </label>
-		  <div class="dropContent">
+		  <label for="D_ID">Department:
+		  <select id="D_ID" name="D_ID">	
+		  <option selected="selected"><?php echo htmlspecialchars($d); ?></option>		  
 		  <?php $sql= mysqli_query($conn, "SELECT Dept_ID, Dept_Name FROM department"); 
 		  while ($row = mysqli_fetch_array($sql)) {
-			echo $row['Dept_ID'] . " - " . $row['Dept_Name'] . "<br>"; }?>
-			</div>
-			</div>
+			echo '<option value="'.$row['Dept_ID'] . '">' . $row['Dept_Name'] .'</option>'; }?>
+		  </select>	
 		</div>
 		
 		<div>
-		  <label for="V_ID">Vehicle ID #: <input type="text" id="V_ID" name="V_ID" value="<?php echo htmlspecialchars($v); ?>">
-		<div class="dropdown">
-		<p class="dropbtn"><i>(Vehicles)</i></p></label>
-		<div class="dropContent">
+		  <label for="V_ID">Vehicle:
+		  <select id="V_ID" name="V_ID">	
+		  <option selected="selected"><?php echo htmlspecialchars($v); ?></option>	
 		  <?php $sql= mysqli_query($conn, "SELECT Vehicle_ID, Plate_Number FROM vehicle"); 
 		  while ($row = mysqli_fetch_array($sql)) {
-			echo $row['Vehicle_ID'] . " - " . $row['Plate_Number'] . "<br>"; }?>
-			</div>
-			</div>
+			echo '<option value="'.$row['Vehicle_ID'] .  '">' . $row['Plate_Number'] . '</option>';  }?>
+		  </select>	
 		</div>
 		
 		<div>
-		  <label for="P_ID">Payroll ID #: <input type="text" id="P_ID" name="P_ID" value="<?php echo htmlspecialchars($p); ?>">
-		  <div class="dropdown">
-		  <p class="dropbtn"><i>(Payroll)</i></p></label>
-		  <div class="dropContent">
+		  <label for="P_ID">Payroll ID:
+		  <select id="P_ID" name="P_ID">	
 		  <?php $sql= mysqli_query($conn, "SELECT Payroll_ID, Salary FROM payroll"); 
 		  while ($row = mysqli_fetch_array($sql)) {
-			echo $row['Payroll_ID'] . " - " . $row['Salary'] . "<br>"; }?>
-			</div>
-			</div>
+			echo '<option value="'.$row['Payroll_ID'] . '">' . $row['Salary'] . '</option>'; }?>
+		  </select>	
         </div>
 		
 		<div>
-		  <label for="Proj_ID">Project ID #: <input type="text" id="Proj_ID" name="Proj_ID" value="<?php echo htmlspecialchars($pr); ?>">
-		  <div class="dropdown">
-		  <p class="dropbtn"><i>(Projects)</i></p></label>
-		  <div class="dropContent">
+		  <label for="Proj_ID">Project:
+		  <select id="Proj_ID" name="Proj_ID">	
+		  <option selected="selected"><?php echo htmlspecialchars($pr); ?></option>	
 		  <?php $sql= mysqli_query($conn, "SELECT Project_ID, Project_Name FROM project"); 
 		  while ($row = mysqli_fetch_array($sql)) {
-			echo $row['Project_ID'] . " - " . $row['Project_Name'] . "<br>"; }?>
-			</div>
-			</div>
+			echo '<option value="'.$row['Project_ID'] . '">' . $row['Project_Name'] .  '</option>';  }?>
+		  </select>	
 		</div>
 		
         <div class="btn">
