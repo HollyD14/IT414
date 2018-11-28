@@ -54,27 +54,27 @@ require 'open-db.php';
     <form action="updateEmployee.php" method="post">
 	<h2>Update Employee</h2>
         <center><div>
-          <label for="number">Employee Number: <input type="text" id="Emp_Number" name="Emp_Number" value="<?php echo htmlspecialchars($e); ?>" readonly="readonly"></label>
+          <label for="number">Employee Number: </label><input type="text" id="Emp_Number" name="Emp_Number" value="<?php echo htmlspecialchars($e); ?>" readonly="readonly">
         </div>
 		
         <div>
-          <label for="fname">First Name: <input type="text" id="First_Name" name="First_Name" value="<?php echo htmlspecialchars($f); ?>" required></label>
+          <label for="fname">First Name: </label><input type="text" id="First_Name" name="First_Name" value="<?php echo htmlspecialchars($f); ?>" required>
         </div>
 		
         <div>
-          <label for="lname">Last Name: <input type="text" id="Last_Name" name="Last_Name" value="<?php echo htmlspecialchars($l); ?>" required></label>
+          <label for="lname">Last Name: </label><input type="text" id="Last_Name" name="Last_Name" value="<?php echo htmlspecialchars($l); ?>" required>
         </div>
 		
 		<div>
-          <label for="address">Address: <input type="text" id="Address" name="Address" value="<?php echo htmlspecialchars($a); ?>"></label>
+          <label for="address">Address: </label><input type="text" id="Address" name="Address" value="<?php echo htmlspecialchars($a); ?>">
         </div>
 		
         <div>
-		  <label for="birth">Birthdate: <i>(YYYY-MM-DD)</i> <input type="text" id="Birth_Date" name="Birth_Date" value="<?php echo htmlspecialchars($b); ?>"></label>
+		  <label for="birth">Birthdate: <br><i>(YYYY-MM-DD)</i> </label><input type="text" id="Birth_Date" name="Birth_Date" value="<?php echo htmlspecialchars($b); ?>">
         </div>
 
 		<div>		
-		  <label for="Sex">Sex: 	  
+		  <label for="Sex">Sex: </label>	  
 		  <select id="Sex" name="Sex">
 		    <option selected="selected"><?php echo htmlspecialchars($s); ?></option>
 			<option value="M">M</option>
@@ -84,15 +84,15 @@ require 'open-db.php';
         </div>
 		
         <div>
-		  <label for="SSN">SSN: <i>(no dashes)</i> <input type="text" id="SSN" name="SSN" value="<?php echo htmlspecialchars($n); ?>"></label>
+		  <label for="SSN">SSN: <i>(no dashes)</i> </label><input type="text" id="SSN" name="SSN" value="<?php echo htmlspecialchars($n); ?>">
         </div>
 		
 		<div>
-          <label for="Start_Date">Start Date: <i>(YYYY-MM-DD)</i> <input type="text" id="Start_Date" name="Start_Date" value="<?php echo htmlspecialchars($sd); ?>"></label>
+          <label for="Start_Date">Start Date: <br><i>(YYYY-MM-DD)</i> </label><input type="text" id="Start_Date" name="Start_Date" value="<?php echo htmlspecialchars($sd); ?>">
         </div>
 		
 		<div>
-		  <label for="J_ID">Position:	 
+		  <label for="J_ID">Position: </label>	 
 		  <select id="J_ID" name="J_ID">
 		  <option value=<?php echo htmlspecialchars($j); ?> selected="selected"><?php echo htmlspecialchars($jt); ?></option>
 		  <?php $sql= mysqli_query($conn, "SELECT Job_ID, Job_Title FROM position"); 
@@ -107,7 +107,7 @@ require 'open-db.php';
         </div>
 		
 		<div>
-		  <label for="D_ID">Department:
+		  <label for="D_ID">Department:</label>
 		  <select id="D_ID" name="D_ID">	
 		  <option value=<?php echo htmlspecialchars($d); ?> selected="selected"><?php echo htmlspecialchars($dn); ?></option>
 		  <?php $sql= mysqli_query($conn, "SELECT Dept_ID, Dept_Name FROM department"); 
@@ -117,7 +117,7 @@ require 'open-db.php';
 		</div>
 		
 		<div>
-		  <label for="Proj_ID">Project:
+		  <label for="Proj_ID">Project:</label>
 		  <select id="Proj_ID" name="Proj_ID">	
 		  <option value=<?php echo htmlspecialchars($pr); ?> selected="selected"><?php echo htmlspecialchars($pn); ?></option>
 		  <?php $sql= mysqli_query($conn, "SELECT Project_ID, Project_Name FROM project"); 
@@ -127,7 +127,7 @@ require 'open-db.php';
 		</div>
 		
 		<div>
-		  <label for="V_ID">Vehicle:
+		  <label for="V_ID">Vehicle:</label>
 		  <select id="V_ID" name="V_ID">	
 		  <option value=<?php echo htmlspecialchars($v); ?> selected="selected"><?php echo htmlspecialchars($plate); ?></option>
 		  <?php $sql= mysqli_query($conn, "SELECT Vehicle_ID, Plate_Number FROM vehicle"); 
