@@ -6,7 +6,7 @@ require 'open-db.php';
 $E_ID=$_POST['eNo'];
 $E_FName=$_POST['eFName'];
 $E_LName=$_POST['eLName'];
-$Sex=$_POST['sex'];
+$Sex=$_POST['Sex'];
 $BDate=$_POST['bdate'];
 $E_Addr=$_POST['eAddr'];
 $SSN=$_POST['ssn'];
