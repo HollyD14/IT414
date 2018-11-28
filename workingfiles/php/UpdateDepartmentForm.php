@@ -26,16 +26,16 @@ while ($row = mysqli_fetch_array($result)) {
     <form action="updateDept.php" method="post">
 	<h2>Update Department</h2>
         <center><div>
-          <label for="number">Department Number: <input type="text" id="dep_number" name="dep_number" value="<?php echo htmlspecialchars($d); ?>" readonly="readonly"></label>
+          <label for="number">Department Number: </label><input type="text" id="dep_number" name="dep_number" value="<?php echo htmlspecialchars($d); ?>" readonly="readonly">
         </div>
         <div>
-          <label for="name">Department Name: <input type="text" id="dep_name" name="dep_name" value="<?php echo htmlspecialchars($n); ?>" required></label>
+          <label for="name">Department Name: </label><input type="text" id="dep_name" name="dep_name" value="<?php echo htmlspecialchars($n); ?>" required>
         </div>
         <div>
-		  <label for="address">Office Address: <input    type="text" id="address" name="address" value="<?php echo htmlspecialchars($a); ?>"></label>
+		  <label for="address">Office Address: </label><input type="text" id="address" name="address" value="<?php echo htmlspecialchars($a); ?>">
         </div>
         <div>
-          <label for="phone">Office Phone: <i>(with or without dashes)</i> <input type="text" id="phone" name="phone" value="<?php echo htmlspecialchars($p); ?>"></label>
+          <label for="phone">Office Phone: <br><i>(with or without dashes)</i> </label><input type="text" id="phone" name="phone" value="<?php echo htmlspecialchars($p); ?>">
         </div>
         <div class="btn">
           <button class="save" type="submit">Update</button>
