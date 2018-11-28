@@ -27,7 +27,7 @@
 			<input type="text" placeholder="Enter birth date" name="bdate"><br>
 			<label for="Sex">Sex: </label>
 				<select id="Sex" name="Sex">
-			  	<option value=NULL> </option>
+			  	<option value=""> </option>
 				<option value="M">M</option>
 				<option value="F">F</option>
 			  </select>
