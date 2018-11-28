@@ -176,12 +176,14 @@ if (isset($_POST['search'])){
 	echo '<link rel="stylesheet" type = "text/css" href="../css/style.css">';
 	require 'open-db.php';
 	//$result= mysqli_query($conn, "SELECT * FROM payroll");
-	$result= mysqli_query($conn, "SELECT Payroll_ID, employee.First_Name, employee.Last_Name, Salary, Garnishments
+	$result= mysqli_query($conn, "SELECT Payroll_ID, position.Job_Title, employee.First_Name, employee.Last_Name, Salary, Garnishments
 							  FROM payroll 
-							  LEFT JOIN employee ON employee.P_ID = payroll.Payroll_ID");							  
+							  LEFT JOIN employee ON employee.P_ID = payroll.Payroll_ID
+							  LEFT JOIN position ON position.Job_ID = employee.J_ID");							  
 	echo '<div class = "formDefault"><table>
 	<tr>
 		<th>Payroll ID</th>
+		<th>Position</th>
 		<th>Employee Name</th>
 		<th>Salary</th>
 		<th>Garnishments</th>
@@ -192,6 +194,7 @@ if (isset($_POST['search'])){
 		$id=$row['Payroll_ID'];
 		echo "<tr>";
 		echo "<td>" . $row['Payroll_ID'] . "</td>";
+		echo "<td>" . $row['Job_Title'] . "</td>";
 		echo "<td>" . $row['First_Name'] . ' ' . $row['Last_Name'] . "</td>";
 		echo "<td>" . '$'. $row['Salary'] . "</td>";
 		echo "<td>" . '$'. $row['Garnishments'] . "</td>";
