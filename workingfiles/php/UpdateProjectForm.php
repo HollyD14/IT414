@@ -25,16 +25,15 @@ while ($row = mysqli_fetch_array($result)) {
     <form action="updateProject.php" method="post">
         <h2>Update Project</h2>
         <center><div>
-          <label for="number">Project Number: <input type="text" id="Project_ID" name="Project_ID" value="<?php echo htmlspecialchars($p); ?>" readonly="readonly"></label>
+          <label for="number">Project Number: </label><input type="text" id="Project_ID" name="Project_ID" value="<?php echo htmlspecialchars($p); ?>" readonly="readonly">
         </div>
         <div>
-          <label for="name">Project Name: <input type="text" id="Project_Name" name="Project_Name" value="<?php echo htmlspecialchars($n); ?>" required></label>
+          <label for="name">Project Name: </label><input type="text" id="Project_Name" name="Project_Name" value="<?php echo htmlspecialchars($n); ?>" required>
         </div>
         <div>
-		  <label for="bdate">Start Date: <i>(YYYY-MM-DD)</i> <input    type="text" id="Start_Date" name="Start_Date" value="<?php echo htmlspecialchars($s); ?>"></label>
-        </div>
+		  <label for="bdate">Start Date: <br><i>(YYYY-MM-DD)</i></label> <input    type="text" id="Start_Date" name="Start_Date" value="<?php echo htmlspecialchars($s); ?>">        </div>
         <div>
-          <label for="edate">End Date: <i>(YYYY-MM-DD)</i> <input type="text" id="End_Date" name="End_Date" value="<?php echo htmlspecialchars($e); ?>"></label>
+          <label for="edate">End Date: <br><i>(YYYY-MM-DD)</i></label> <input type="text" id="End_Date" name="End_Date" value="<?php echo htmlspecialchars($e); ?>">
         </div>
         <div class="btn">
           <button class="save" type="submit">Update</button>

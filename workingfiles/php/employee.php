@@ -25,13 +25,13 @@
 			<input type="text" placeholder="Enter Last Name (REQUIRED)" name="eLName" required><br>
 			<label for="Date of Birth">Date of Birth: <i>(YYYY-MM-DD)</i></label> 
 			<input type="text" placeholder="Enter birth date" name="bdate"><br>
-			<label for="Sex">Sex: 	  
-			  <select id="Sex" name="Sex">
+			<label for="Sex">Sex: </label>
+				<select id="Sex" name="Sex">
 			  	<option value=NULL> </option>
 				<option value="M">M</option>
 				<option value="F">F</option>
 			  </select>
-			</label><br>
+			<br>
 			<label for="Office Address">Address:</label> 
 			<input type="text" placeholder="Enter Home Address" name="eAddr"><br>
 			<label for="SSN">SSN: <i>(no dashes)</i></label> 

@@ -26,13 +26,13 @@ while ($row = mysqli_fetch_array($result)) {
     <form action="updatePosition.php" method="post">
        <h2>Update Position</h2>
         <center><div>
-          <label for="number">Payroll ID: <input type="text" id="Job_ID" name="Job_ID" value="<?php echo htmlspecialchars($j); ?>" readonly="readonly"></label>
+          <label for="number">Payroll ID: </label><input type="text" id="Job_ID" name="Job_ID" value="<?php echo htmlspecialchars($j); ?>" readonly="readonly">
         </div>
         <div>
-          <label for="title">Job Title: <input type="text" id="Job_Title" name="Job_Title" value="<?php echo htmlspecialchars($t); ?>" required></label>
+          <label for="title">Job Title: </label><input type="text" id="Job_Title" name="Job_Title" value="<?php echo htmlspecialchars($t); ?>" required>
         </div>
         <div>
-          <label for="base">Base Salary: <i>(with or without commas)</i> <input type="text" id="Base_Salary" name="Base_Salary" value="<?php echo htmlspecialchars($b); ?>"></label>
+          <label for="base">Base Salary: <br><i>(with or without commas)</i> </label><input type="text" id="Base_Salary" name="Base_Salary" value="<?php echo htmlspecialchars($b); ?>">
         </div>
         <div class="btn">
           <button class="save" type="submit">Update</button>
