@@ -9,7 +9,7 @@ $Dept_Addr=$_POST['deptAddr'];
 $Dept_Phone=$_POST['deptPhone'];
 
 $sql = "INSERT into department (Dept_ID, Dept_Name, Office_Addr, Office_Phone)
-VALUES ('$Dept_ID', '$Dept_Name', ".(($Dept_Addr=='')?"NULL":("'".$Dept_Addr."'"))."
+VALUES ('$Dept_ID', '$Dept_Name', ".(($Dept_Addr=='')?"NULL":("'".$Dept_Addr."'")).",
 		".(($Dept_Phone =='')?"NULL":("'".$Dept_Phone."'"))."
 	   )";
 
