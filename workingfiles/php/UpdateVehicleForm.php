@@ -29,22 +29,22 @@ while ($row = mysqli_fetch_array($result)) {
     <form action="updateVehicle" method="post">
        <h2>Update Vehicle</h2>
         <center><div>
-          <label for="number">Vehicle Number: <input type="text" id="Vehicle_ID" name="Vehicle_ID" value="<?php echo htmlspecialchars($v); ?>" readonly="readonly"></label>
+          <label for="number">Vehicle Number: </label><input type="text" id="Vehicle_ID" name="Vehicle_ID" value="<?php echo htmlspecialchars($v); ?>" readonly="readonly">
         </div>
         <div>
-          <label for="make">Make: <input type="text" id="Make" name="Make" value="<?php echo htmlspecialchars($m); ?>" required></label>
+          <label for="make">Make: </label><input type="text" id="Make" name="Make" value="<?php echo htmlspecialchars($m); ?>" required>
         </div>
         <div>
-          <label for="model">Model: <input type="text" id="Model" name="Model" value="<?php echo htmlspecialchars($o); ?>" required></label>
+          <label for="model">Model: </label><input type="text" id="Model" name="Model" value="<?php echo htmlspecialchars($o); ?>" required>
         </div>
 		<div>
-          <label for="Year">Year: <i>(YYYY)</i> <input type="text" id="Year" name="Year" value="<?php echo htmlspecialchars($y); ?>" required></label>
+          <label for="Year">Year: <br><i>(YYYY)</i> </label><input type="text" id="Year" name="Year" value="<?php echo htmlspecialchars($y); ?>" required>
         </div>
         <div>
-		  <label for="color">Color: <input type="text" id="Color" name="Color" value="<?php echo htmlspecialchars($c); ?>"></label>
+		  <label for="color">Color: </label><input type="text" id="Color" name="Color" value="<?php echo htmlspecialchars($c); ?>">
         </div>
  		<div>
-          <label for="Plate">Plate Number: <i>(XXX XXX)</i> <input type="text" id="Plate_Number" name="Plate_Number" value="<?php echo htmlspecialchars($p); ?>"></label>
+          <label for="Plate">Plate Number: <br><i>(XXX XXX)</i> </label><input type="text" id="Plate_Number" name="Plate_Number" value="<?php echo htmlspecialchars($p); ?>">
         </div>
         <div class="btn">
           <button class="save" type="submit">Update</button>
