@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Update Employee</title>
-	<link href='../css/updateFormStyle.css' rel='stylesheet' type='text/css'/>
+	<link href='../css/updateEmpFormStyle.css' rel='stylesheet' type='text/css'/>
 	<link href="../css/pageStyle.css" rel="stylesheet" type="text/css"/>
    
      
