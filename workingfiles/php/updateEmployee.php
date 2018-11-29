@@ -33,19 +33,19 @@ echo "Connected successfully <br>";
 //Single line to update the database from the form data
 
 //$sql = "UPDATE payroll SET Salary = '".$_POST['P_Salary']."' WHERE Payroll_ID = '".$_POST['P_ID']."'";
-$sql = "UPDATE payroll SET Salary = '".$_POST['P_Salary']."' WHERE Payroll_ID = $pr";
+$sql1 = "UPDATE payroll SET Salary = '".$_POST['P_Salary']."' WHERE Payroll_ID = $pr";
 
 
 $sql2 = "UPDATE employee SET First_Name = '".$_POST['First_Name']."', Last_Name = '".$_POST['Last_Name']."', Address = NULLIF('".$_POST['Address']."',''),
 Birth_Date = NULLIF('".$_POST['Birth_Date']."',''), Sex = NULLIF(UPPER('".$_POST['Sex']."'),''), SSN = NULLIF('".$_POST['SSN']."',''), Start_Date = NULLIF('".$_POST['Start_Date']."',''),
 J_ID = NULLIF('".$_POST['J_ID']."',''), D_ID = NULLIF('".$_POST['D_ID']."',''), V_ID = NULLIF('".$_POST['V_ID']."',''), Proj_ID = NULLIF('".$_POST['Proj_ID']."','') WHERE Emp_Number = $enum";
 
-
-
  
 //Following block returns the user to the updated department page when successfull,
 //Or returns an error code with a shortcut to the deapartment page if not
-if ($conn->query($sql) === TRUE) {
+
+
+if ($conn->query($sql2) === TRUE) {
    echo "Record updated successfully";
       echo "Return to Update Page: " ;
 	  header ("Location: http://localhost/php/employee.php");
@@ -56,7 +56,7 @@ if ($conn->query($sql) === TRUE) {
 HTML;
 }
 
-if ($conn->query($sql2) === TRUE) {
+if ($conn->query($sql1) === TRUE) {
    echo "Record updated successfully";
       echo "Return to Update Page: " ;
 	  header ("Location: http://localhost/php/employee.php");
