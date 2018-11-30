@@ -1,0 +1,99 @@
+
+
+.formContainer {
+  background-color: white;
+  border: solid black 1px;
+  width: 400px;
+  overflow: auto;
+  text-align: left;
+  
+}
+
+h2{
+	text-align: center;
+	color: white;
+	background-color: #37439b;
+	padding: 5px;
+}
+
+ .save {
+  background-color: #555;
+  color: white;
+  font-weight: bold;
+  padding: 16px 20px;
+  width: 25%;
+  border: none;
+  cursor: pointer;
+  margin-top: 40px;
+  margin-left: 40px;
+  margin-bottom: 20px;
+  opacity: 0.8;
+  float: left;
+}
+
+.cancel {
+  background-color: #ac3939;
+  color: white;
+  font-weight: bold;
+  padding: 16px 20px;
+  width: 25%;
+  border: none;
+  cursor: pointer;
+  margin-top: 40px;
+  margin-right: 40px;
+  margin-bottom: 20px;
+  opacity: 0.8;
+  float: right;
+}
+
+.formContainer .save:hover, .cancel:hover{
+  opacity: 1;
+}
+
+
+label{
+      display: inline-block;
+      width: 150px;
+      text-align: left;
+	  margin-top: 20px;	
+}
+
+select{
+      display: inline-block;
+      width: 166px;
+      text-align: left;
+	  margin-top: 20px;	
+	  margin-right: 2px;
+}
+
+textarea{
+	vertical-align: top;
+}
+
+
+	
+
+/* Dropdown Button */
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropContent {
+    display: none;
+	padding: 2px;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropContent {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {font-weight: bold;}

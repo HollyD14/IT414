@@ -1,0 +1,61 @@
+
+
+.formContainer {
+  background-color: white;
+  border: solid black 1px;
+  width: 400px;
+  overflow: auto;
+  text-align: left;
+}
+
+h2{
+	text-align: center;
+	color: white;
+	background-color: #37439b;
+	padding: 5px;
+}
+
+ .save {
+  background-color: #555;
+  color: white;
+  font-weight: bold;
+  padding: 16px 20px;
+  width: 25%;
+  border: none;
+  cursor: pointer;
+  margin-top: 40px;
+  margin-left: 40px;
+  margin-bottom: 20px;
+  opacity: 0.8;
+  float: left;
+}
+
+.cancel {
+  background-color: #ac3939;
+    color: white;
+  font-weight: bold;
+  padding: 16px 20px;
+  width: 25%;
+  border: none;
+  cursor: pointer;
+  margin-top: 40px;
+  margin-right: 40px;
+  margin-bottom: 20px;
+  opacity: 0.8;
+  float: right;
+}
+
+.formContainer .save:hover, .cancel:hover{
+  opacity: 1;
+}
+
+label{
+      display: inline-block;
+      width: 150px;
+      text-align: left;
+	  margin-top: 20px;	
+}
+
+textarea{
+	vertical-align: top;
+}
