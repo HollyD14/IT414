@@ -12,17 +12,30 @@
 	</head>
 	<body>
 					<!--*****ADD EMPLOYEE***** -->
+					
+<?php					//defined variables for db login
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "telmon_database";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+echo "<br>";
+?>
 		<div id="container">
 	<button class="openButton" onclick="openForm()">+ Add Employee</button>
 	<div class="formPopup" id="createEmp">
 		<form action="addEmp.php" method="post" class="formContainer"> 
 			<h1>Add Employee</h1>
 			<label for="Employee No.">Employee Number:</label>
-			<input type="number" placeholder="Enter Employee # (REQUIRED)" name="eNo" required><br>
+			<input type="number" placeholder="Employee # (REQUIRED)" name="eNo" required><br>
 			<label for="First Name">First Name:</label>
-			<input type="text" placeholder="Enter First Name (REQUIRED)" name="eFName" required><br>
+			<input type="text" placeholder="First Name (REQUIRED)" name="eFName" required><br>
 			<label for="Last Name">Last Name:</label> 
-			<input type="text" placeholder="Enter Last Name (REQUIRED)" name="eLName" required><br>
+			<input type="text" placeholder="Last Name (REQUIRED)" name="eLName" required><br>
 			<label for="Date of Birth">Date of Birth: <i>(YYYY-MM-DD)</i></label> 
 			<input type="text" placeholder="Enter birth date" name="bdate"><br>
 			<label for="Sex">Sex: </label>
@@ -38,6 +51,50 @@
 			<input type="text" placeholder="Enter SSN" name="ssn"><br>
 			<label for="Start Date">Start Date:</label>
 			<input type="text" placeholder="Enter Start Date" name="startDate"><br>
+
+		<div>
+		  <label for="J_ID">Position: </label>	 
+		  <select id="J_ID" name="J_ID">
+		  <option value=""> </option>
+		  <?php $sql= mysqli_query($conn, "SELECT Job_ID, Job_Title FROM position"); 
+		  while ($row = mysqli_fetch_array($sql)) {
+			echo '<option value="'.$row['Job_ID'] . '">' .$row['Job_Title'].'</option>'; }?>
+		  </select>
+		</div>
+
+			<label for="salary">Salary:</label>
+			<input type="number" placeholder=" " name="salary"><br>
+			
+		<div>
+		  <label for="D_ID">Department:</label>
+		  <select id="D_ID" name="D_ID">	
+		  <option value=""> </option>
+		  <?php $sql= mysqli_query($conn, "SELECT Dept_ID, Dept_Name FROM department"); 
+		  while ($row = mysqli_fetch_array($sql)) {
+			echo '<option value="'.$row['Dept_ID'] . '">' . $row['Dept_Name'] .'</option>'; }?>
+		  </select>	
+		</div>		
+
+		<div>
+		  <label for="Proj_ID">Project:</label>
+		  <select id="Proj_ID" name="Proj_ID">	
+		  <option value=""> </option>
+		  <?php $sql= mysqli_query($conn, "SELECT Project_ID, Project_Name FROM project"); 
+		  while ($row = mysqli_fetch_array($sql)) {
+			echo '<option value="'.$row['Project_ID'] . '">' . $row['Project_Name'] .  '</option>';  }?>
+		  </select>	
+		</div>
+
+		<div>
+		  <label for="V_ID">Vehicle:</label>
+		  <select id="V_ID" name="V_ID">	
+		  <option value=""> </option>
+		  <?php $sql= mysqli_query($conn, "SELECT Vehicle_ID, Plate_Number FROM vehicle"); 
+		  while ($row = mysqli_fetch_array($sql)) {
+			echo '<option value="'.$row['Vehicle_ID'] .  '">' . $row['Vehicle_ID'] . "-" . $row['Plate_Number'] . '</option>';  }?>
+		  </select>	
+		</div>
+		
 		<center><button type="submit" class="btn save">Save</button>
 		<button type="button" class="btn cancel" onclick="closeForm()">Cancel</button></center>
 		</form>
