@@ -1,9 +1,9 @@
 # IT414
 The following directions are designed using Wampserver64 and phpmyadmin software after it is installed using default settings, and running on your computer. 
 
-To begin, download and unzip the folder for our project
+To begin, download and unzip the Group C Project folder
 
-The first step is to set up the database and a new user account
+The first step is to set up the database and new user account
 #1. Open the browser you selected in your Wampserver setup and type http://localhost/
 #2. Select phpmyadmin under the 'Your Aliases' section on the localhost page
 #3. After phpmyadmin opens, select the 'User Accounts' tab
@@ -14,10 +14,9 @@ The first step is to set up the database and a new user account
 #8. On the Database tab, under Create Database, fill in the name field with "telmon_database", select utf8_general_ci, and then select 'create'
 #9. The new database should now appear in the left column and already be selected
 #10. Go to the Import tab on the top of the page
-#11. Browse to the location of the telmon_database.sql file from our unzipped project folder
+#11. Browse to the location of the telmon_database.sql file in the unzipped Group C Project folder
 #12. Leave all other settings as default and select Go
-#13. The databse is now set up for use
-#14. You can now close the browser window
+#13. The databse is now set up for use and you can now close the browser window
 
 The second step is to set up the interface
 #1. Open the Wamp64 folder in the C drive
