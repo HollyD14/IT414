@@ -1,0 +1,33 @@
+# IT414
+The following directions are designed using Wampserver64 and phpmyadmin software after it is installed using default settings, and running on your computer. 
+
+To begin, download and unzip the folder for our project
+
+The first step is to set up the database and a new user account
+#1. Open the browser you selected in your Wampserver setup and type http://localhost/
+#2. Select phpmyadmin under the 'Your Aliases' section on the localhost page
+#3. After phpmyadmin opens, select the 'User Accounts' tab
+#4. Create a new user with the User name 'username,' and password set to 'password.' 'Local' should be selected under Host name.
+#5. Next to 'Global privileges' select 'Check all'
+#6. Select 'Go' to add the user   
+#7. To create a new database, select 'New' from the far left column
+#8. On the Database tab, under Create Database, fill in the name field with "telmon_database", select utf8_general_ci, and then select 'create'
+#9. The new database should now appear in the left column and already be selected
+#10. Go to the Import tab on the top of the page
+#11. Browse to the location of the telmon_database.sql file from our unzipped project folder
+#12. Leave all other settings as default and select Go
+#13. The databse is now set up for use
+#14. You can now close the browser window
+
+The second step is to set up the interface
+#1. Open the Wamp64 folder in the C drive
+#2. Open the folder labeled 'www'
+#3. Copy the css, php, and images folders from the unzipped Group C Project folder and paste them inside 'www'
+#4. Open the browser you selected in your Wampserver setup
+#5. Type http://localhost/php/department.php in the address bar of your browser
+#6. From here, you can navigate through the database and perform various functions on the database like add, delete, and search
+
+
+
+
+
