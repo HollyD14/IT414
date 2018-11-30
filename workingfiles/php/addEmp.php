@@ -3,7 +3,7 @@
 require 'open-db.php';
 
 /*Add employee*/
-$Pay_ID=$_POST['eNo'];
+
 $E_ID=$_POST['eNo'];
 $E_FName=$_POST['eFName'];
 $E_LName=$_POST['eLName'];
@@ -12,14 +12,22 @@ $BDate=$_POST['bdate'];
 $E_Addr=$_POST['eAddr'];
 $SSN=$_POST['ssn'];
 $Start_Date=$_POST['startDate'];
+$Job_ID=$_POST['J_ID'];
+$Pay_ID=$_POST['eNo'];
+$Sal=$_POST['salary'];
+$Dep_ID=$_POST['D_ID'];
+$Pro_ID=$_POST['Proj_ID'];
+$Veh_ID=$_POST['V_ID'];
+
 
 $pay = "INSERT into payroll (Payroll_ID, Salary, Garnishments)
-VALUES ('$Pay_ID', '0','0')";
+VALUES ('$Pay_ID', '$Sal','0')";
 
-$Emp = "INSERT into employee (Emp_Number, First_Name, Last_Name, Birth_Date, Sex, Address, SSN, Start_Date, D_ID, J_ID, P_ID, V_ID, Proj_ID)
+$Emp = "INSERT into employee (Emp_Number, First_Name, Last_Name, Birth_Date, Sex, Address, SSN, Start_Date, J_ID, P_ID, D_ID, Proj_ID, V_ID)
 VALUES ('$E_ID', '$E_FName', '$E_LName', ".(($BDate=='')? "NULL" :("'".$BDate."'")).",
 		".(($Sex=='')? "NULL" :("'".$Sex."'")).", ".(($E_Addr=='')?"NULL":("'".$E_Addr."'")).",
-		".(($SSN=='')?"NULL":("'".$SSN."'")).", ".(($Start_Date=='')?"NULL":("'".$Start_Date."'")).",'0','0','$E_ID','0','0'
+		".(($SSN=='')?"NULL":("'".$SSN."'")).", ".(($Start_Date=='')?"NULL":("'".$Start_Date."'")).", ".(($Job_ID=='')?"NULL":("'".$Job_ID."'")).", '$Pay_ID', ".(($Dep_ID=='')?"NULL":("'".$Dep_ID."'")).",
+		".(($Pro_ID=='')?"NULL":("'".$Pro_ID."'")).", ".(($Veh_ID=='')?"NULL":("'".$Veh_ID."'"))."
 	   )";   
 
 //Following block returns the user to the updated department page when successfull,
